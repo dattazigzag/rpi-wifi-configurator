@@ -62,7 +62,7 @@ print("-----------------------")
 print("Artist: Saurabh Datta")
 print("Loc: Berlin, Germany")
 print("Date: Sept|2024")
-print("----------------------")
+print("-----------------------")
 
 # TBD 
 # If wifi connected print IP address
