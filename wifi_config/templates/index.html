@@ -8,16 +8,12 @@
 </head>
 <body>
     <h1>Wi-Fi Configuration</h1>
-    <select id="network-list">
-        <option value="">Select a network</option>
-    </select>
-    <button id="refresh-btn">Refresh</button>
+    <input type="text" id="network-name" placeholder="Enter network name (SSID)">
     <input type="password" id="password" placeholder="Enter password">
     <button id="connect-btn">Connect</button>
-    <button id="exit-ap-btn">Exit AP Mode</button>
     <div id="status"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/js/socket.io.js"></script>
     <script src="/static/js/script.js"></script>
 </body>
 </html>

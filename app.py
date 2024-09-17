@@ -1,6 +1,9 @@
 from button import Button
 from runner import run_command
 import time
+from wifi_config.network_manager import NetworkManager
+from wifi_config.web_server import run_server 
+import threading
 
 print("KOMOREBI LOG")
 
@@ -14,9 +17,15 @@ def on_short_press():
 
 def on_long_press():
     print("\n[***] Long Press")
-    print("[>] Running placeholder shell cmd")
-    run_command("echo 'Long press action executed'")
-
+    print("Setting up Access Point ...")
+    NetworkManager.setup_ap()
+    server_thread = threading.Thread(target=run_server)
+    server_thread.start()
+    print("Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1")
+    # Wait for the server to stop (this will happen after successful Wi-Fi connection)
+    server_thread.join()
+    # block
+    print("Wi-Fi configuration process completed.")
 
 # ------------------------------------------ #
 # ******** Create a Button instance ******** #

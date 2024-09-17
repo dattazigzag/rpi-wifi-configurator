@@ -1,5 +1,5 @@
 import subprocess
-import time
+from time import sleep
 
 class NetworkManager:
     @staticmethod
@@ -10,28 +10,6 @@ class NetworkManager:
         except subprocess.CalledProcessError as e:
             print(f"Failed to set up Access Point: {e}")
 
-    @staticmethod
-    def get_wifi_networks():
-        try:
-            print("Disabling AP mode for scanning...")
-            subprocess.run(["sudo", "nmcli", "con", "down", "hotspot"], check=True)
-            time.sleep(2)  # Give some time for the interface to switch modes
-            
-            print("Scanning for networks...")
-            cmd = "sudo nmcli -f SSID,FREQ dev wifi list | grep -v '5[0-9]\{3\}'"
-            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, check=True)
-            print(f"Scan result: {result.stdout}")
-            
-            networks = [line.split()[0] for line in result.stdout.split('\n') if line.strip()]
-            print(f"Parsed networks: {networks}")
-            
-            print("Re-enabling AP mode...")
-            subprocess.run(["sudo", "nmcli", "con", "up", "hotspot"], check=True)
-            return networks
-        except subprocess.CalledProcessError as e:
-            print(f"Error getting Wi-Fi networks: {e}")
-            print(f"Error output: {e.stderr}")
-            return []
 
     @staticmethod
     def connect_to_wifi(ssid, password):
@@ -44,7 +22,7 @@ class NetworkManager:
             result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
             if result.returncode != 0:
                 return False, result.stderr
-        time.sleep(5)  # Wait for connection to stabilize
+        sleep(5)  # Wait for connection to stabilize
         return True, "Connected successfully"
 
     @staticmethod
@@ -52,14 +30,3 @@ class NetworkManager:
         cmd = "hostname -I | awk '{print $1}'"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         return result.stdout.strip()
-
-    @staticmethod
-    def exit_ap_mode():
-        try:
-            subprocess.run(["sudo", "nmcli", "con", "down", "hotspot"], check=True)
-            subprocess.run(["sudo", "nmcli", "con", "delete", "hotspot"], check=True)
-            # Try to connect to the last known connection
-            subprocess.run(["sudo", "nmcli", "con", "up", "$(nmcli -g NAME con show --active)"], shell=True, check=True)
-            return True, "Exited AP mode and reconnected to previous network"
-        except subprocess.CalledProcessError as e:
-            return False, f"Failed to exit AP mode: {e}"

@@ -1,5 +1,3 @@
-import os
-import sys
 from network_manager import NetworkManager
 from web_server import run_server
 import threading
@@ -20,6 +18,12 @@ def main():
     server_thread = threading.Thread(target=run_server)
     server_thread.start()
     print("Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1")
+
+    # Wait for the server to stop (this will happen after successful Wi-Fi connection)
+    server_thread.join()
+
+    print("Wi-Fi configuration process completed.")
+
 
 if __name__ == "__main__":
     main()
