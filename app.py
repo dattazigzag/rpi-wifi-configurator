@@ -13,20 +13,21 @@ print("KOMOREBI LOG")
 # ------------------------------------------- #
 
 def on_short_press():
-    print("[*] Short Press")
+    print("[app.py][*] Short Press")
+    print("[app.py][Action] Do nothing ...")
+
 
 def on_long_press():
+    global server_thread, server_running
     print("\n[***] Long Press")
-    print("Setting up Access Point ...")
-    NetworkManager.setup_ap()
-    server_thread = threading.Thread(target=run_server)
-    server_thread.start()
-    print("Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1")
-    # Wait for the server to stop (this will happen after successful Wi-Fi connection)
-    server_thread.join()
-    # block
-    print("Wi-Fi configuration process completed.")
-
+    if not server_running:
+        print("[app.py][Action] Setting up Access Point ...")
+        NetworkManager.setup_ap()
+        server_thread = threading.Thread(target=run_server)
+        server_thread.start()
+        print("[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1")
+    else:
+        print("[app.py][Result] Server is already running.")
 
 
 # ------------------------------------------ #
@@ -45,8 +46,10 @@ button.on_long_press = on_long_press
 
 def main():
     while True:
-        # Your main program code here
-        time.sleep(10)
+        time.sleep(1)
+        if not server_running and server_thread and not server_thread.is_alive():
+            print("[app.py][Result] Wi-Fi configuration process completed.")
+            server_thread = None
 
 # ------------------------------------------ #
 
@@ -55,4 +58,4 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print("Program stopped")
+        print("[app.py][Result] Program stopped")

@@ -6,9 +6,9 @@ class NetworkManager:
     def setup_ap():
         try:
             subprocess.run(["sudo", "nmcli", "con", "up", "hotspot"], check=True)
-            print("Access Point set up successfully.")
+            print("[net_manager.py][Result ]Access Point set up successfully.")
         except subprocess.CalledProcessError as e:
-            print(f"Failed to set up Access Point: {e}")
+            print(f"[net_manager.py][Result] Failed to set up Access Point: {e}")
 
 
     @staticmethod
@@ -23,7 +23,7 @@ class NetworkManager:
             if result.returncode != 0:
                 return False, result.stderr
         sleep(5)  # Wait for connection to stabilize
-        return True, "Connected successfully"
+        return True, "[net_manager.py][Result] Connected successfully"
 
     @staticmethod
     def get_current_ip():
