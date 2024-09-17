@@ -1,0 +1,51 @@
+2024-09-17 22:20:58,817 - komorebi - INFO - -----------------------
+2024-09-17 22:20:58,818 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-17 22:20:58,819 - komorebi - INFO - -----------------------
+2024-09-17 22:20:58,820 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-17 22:20:58,821 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-17 22:20:58,821 - komorebi - INFO - Date: Sept|2024
+2024-09-17 22:20:58,822 - komorebi - INFO - -----------------------
+2024-09-17 22:21:25,680 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-17 22:22:08,248 - komorebi - INFO - -----------------------
+2024-09-17 22:22:08,249 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-17 22:22:08,249 - komorebi - INFO - -----------------------
+2024-09-17 22:22:08,250 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-17 22:22:08,251 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-17 22:22:08,252 - komorebi - INFO - Date: Sept|2024
+2024-09-17 22:22:08,252 - komorebi - INFO - -----------------------
+2024-09-17 22:22:17,794 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:22:17,795 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:22:18,590 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:22:18,591 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:22:19,518 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:22:19,520 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:22:25,191 - komorebi - INFO - 
+[app.py][Event] Long Press
+2024-09-17 22:22:25,192 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-17 22:22:27,390 - komorebi - INFO - Access Point set up successfully.
+2024-09-17 22:22:27,399 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+2024-09-17 22:24:22,006 - komorebi - DEBUG - Command: sudo nmcli dev wifi connect ':)' password 'jEmx4vpR'
+2024-09-17 22:24:22,007 - komorebi - DEBUG - Return code: 0
+2024-09-17 22:24:22,009 - komorebi - DEBUG - Stdout: [2K
+Device 'wlan0' successfully activated with '6f444238-bbd5-4de9-8ec5-500d54575c86'.
+
+2024-09-17 22:24:22,010 - komorebi - DEBUG - Stderr: 
+2024-09-17 22:24:22,226 - komorebi - DEBUG - Command: sudo nmcli con down hotspot
+2024-09-17 22:24:22,227 - komorebi - DEBUG - Return code: 10
+2024-09-17 22:24:22,227 - komorebi - DEBUG - Stdout: 
+2024-09-17 22:24:22,228 - komorebi - DEBUG - Stderr: Error: 'hotspot' is not an active connection.
+Error: no active connection provided.
+
+2024-09-17 22:24:22,229 - komorebi - DEBUG - Connection success: False
+2024-09-17 22:24:22,229 - komorebi - DEBUG - Connection message: Error: Error: 'hotspot' is not an active connection.
+Error: no active connection provided.
+
+2024-09-17 22:24:22,230 - komorebi - ERROR - Connection failed: Error: Error: 'hotspot' is not an active connection.
+Error: no active connection provided.
+
+2024-09-17 22:24:45,418 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:24:45,419 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:24:46,290 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:24:46,291 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:24:47,024 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:24:47,025 - komorebi - INFO - [app.py][Action] Do nothing ...

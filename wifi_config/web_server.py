@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_socketio import SocketIO
 from wifi_config.network_manager import NetworkManager
 import threading
+from logger import logger
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -9,53 +10,45 @@ socketio = SocketIO(app)
 server_running = False
 server_thread = None
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 @app.route('/static/js/socket.io.js')
 def serve_socketio_js():
     return app.send_static_file('js/socket.io.js')
 
-
 @app.route('/static/images/<path:filename>')
 def serve_image(filename):
     return app.send_static_file(f'images/{filename}')
-
 
 @socketio.on('connect_wifi')
 def handle_connect_wifi(data):
     ssid = data['ssid']
     password = data['password']
-
     success, message = NetworkManager.connect_to_wifi(ssid, password)
-
-    print(f"[web_server.py][Debug] Connection success: {success}")
-    print(f"[web_server.py][Debug] Connection message: {message}")
+    logger.debug(f"Connection success: {success}")
+    logger.debug(f"Connection message: {message}")
     
     if success:
         ip = NetworkManager.get_current_ip()
-        print(f'[web_server.py][Result] The current IP is: {ip}')
+        logger.info(f'The current IP is: {ip}')
         socketio.emit('connection_result', {'success': True, 'ip': ip})
         threading.Thread(target=stop_server).start()
     else:
-        print(f'[web_server.py][Error] Connection failed: {message}')
+        logger.error(f'Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
-
 
 def run_server():
     global server_running
     server_running = True
-    socketio.run(app, host='0.0.0.0', port=80, debug=False)
-
+    socketio.run(app, host='0.0.0.0', port=80, debug=False, log_output=False)
 
 def stop_server():
     global server_running, server_thread
     server_running = False
     socketio.stop()
-    print("[web_server.py][Result] Web server stopped.")
-    print("[web_server.py][Result] Wi-Fi configuration process completed.")
+    logger.info("Web server stopped.")
+    logger.info("Wi-Fi configuration process completed.")
     if server_thread:
         server_thread.join()
