@@ -2,7 +2,7 @@ from button import Button
 from runner import run_command
 import time
 from wifi_config.network_manager import NetworkManager
-from wifi_config.web_server import run_server 
+from wifi_config.web_server import run_server, server_thread, server_running
 import threading
 
 print("KOMOREBI LOG")
