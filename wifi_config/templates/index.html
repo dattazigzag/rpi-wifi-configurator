@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Configuration</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Wi-Fi Configuration</h1>
+    <select id="network-list">
+        <option value="">Select a network</option>
+    </select>
+    <button id="refresh-btn">Refresh</button>
+    <input type="password" id="password" placeholder="Enter password">
+    <button id="connect-btn">Connect</button>
+    <div id="status"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
