@@ -6,6 +6,7 @@ const togglePasswordBtn = document.getElementById('toggle-password');
 const connectBtn = document.getElementById('connect-btn');
 const statusDiv = document.getElementById('status');
 
+
 togglePasswordBtn.addEventListener('click', () => {
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
@@ -15,6 +16,7 @@ togglePasswordBtn.addEventListener('click', () => {
         togglePasswordBtn.textContent = '👀';
     }
 });
+
 
 connectBtn.addEventListener('click', () => {
     const ssid = networkNameInput.value;
@@ -27,6 +29,7 @@ connectBtn.addEventListener('click', () => {
     }
 });
 
+
 socket.on('connection_result', (data) => {
     if (data.success) {
         statusDiv.textContent = `Connected successfully. IP: ${data.ip}`;
@@ -35,6 +38,7 @@ socket.on('connection_result', (data) => {
         alert('Connection failed. Please try again.');
     }
 });
+
 
 socket.on('connect', () => {
     console.log('Connected to server');
