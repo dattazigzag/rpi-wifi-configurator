@@ -6,8 +6,8 @@ import threading
 
 
 # Ensure we're using the virtual environment
-venv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'venv', 'bin', 'activate_this.py')
-exec(open(venv_path).read(), {'__file__': venv_path})
+# venv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'venv', 'bin', 'activate_this.py')
+# exec(open(venv_path).read(), {'__file__': venv_path})
 
 
 def main():

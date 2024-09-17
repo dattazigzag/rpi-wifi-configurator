@@ -4,16 +4,12 @@ import time
 class NetworkManager:
     @staticmethod
     def setup_ap():
-        # Commands to set up AP mode
-        commands = [
-            "nmcli con add type wifi ifname wlan0 con-name hotspot autoconnect yes ssid KOMOREBI-PI-STICK",
-            "nmcli con modify hotspot 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared",
-            "nmcli con modify hotspot wifi-sec.key-mgmt wpa-psk",
-            "nmcli con modify hotspot wifi-sec.psk komorebi123",
-            "nmcli con up hotspot"
-        ]
-        for cmd in commands:
-            subprocess.run(cmd, shell=True, check=True)
+        try:
+            subprocess.run(["sudo", "nmcli", "con", "up", "hotspot"], check=True)
+            print("Access Point set up successfully.")
+        except subprocess.CalledProcessError as e:
+            print(f"Failed to set up Access Point: {e}")
+            # TBD: Add some error handling or retry logic here
 
     @staticmethod
     def get_wifi_networks():

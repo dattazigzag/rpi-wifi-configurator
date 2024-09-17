@@ -26,4 +26,5 @@ def handle_connect_wifi(data):
         socketio.emit('connection_result', {'success': False, 'error': message})
 
 def run_server():
-    socketio.run(app, host='10.10.1.1', port=80)
+    # socketio.run(app, host='10.10.1.1', port=80)
+    socketio.run(app, host='0.0.0.0', port=80)
