@@ -50,3 +50,39 @@ Error: no active connection provided.
 2024-09-17 22:24:47,024 - komorebi - INFO - [app.py][Event] Short Press
 2024-09-17 22:24:47,025 - komorebi - INFO - [app.py][Action] Do nothing ...
 2024-09-17 22:45:06,044 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-17 22:47:59,395 - komorebi - INFO - -----------------------
+2024-09-17 22:47:59,396 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-17 22:47:59,397 - komorebi - INFO - -----------------------
+2024-09-17 22:47:59,398 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-17 22:47:59,399 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-17 22:47:59,399 - komorebi - INFO - Date: Sept|2024
+2024-09-17 22:47:59,400 - komorebi - INFO - -----------------------
+2024-09-17 22:48:03,069 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:48:03,071 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:48:03,516 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-17 22:48:03,517 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-17 22:48:08,715 - komorebi - INFO - 
+[app.py][Event] Long Press
+2024-09-17 22:48:08,716 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-17 22:48:10,922 - komorebi - INFO - Access Point set up successfully.
+2024-09-17 22:48:10,929 - komorebi - INFO - [app.py][Result] Web server and DNS Server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+2024-09-17 22:49:56,088 - komorebi - DEBUG - Command: sudo nmcli dev wifi connect ':)' password 'jEmx4vpR'
+2024-09-17 22:49:56,089 - komorebi - DEBUG - Return code: 0
+2024-09-17 22:49:56,099 - komorebi - DEBUG - Stdout: [2K
+Device 'wlan0' successfully activated with '6f444238-bbd5-4de9-8ec5-500d54575c86'.
+
+2024-09-17 22:49:56,100 - komorebi - DEBUG - Stderr: 
+2024-09-17 22:49:56,309 - komorebi - DEBUG - Command: sudo nmcli con down hotspot
+2024-09-17 22:49:56,310 - komorebi - DEBUG - Return code: 10
+2024-09-17 22:49:56,311 - komorebi - DEBUG - Stdout: 
+2024-09-17 22:49:56,312 - komorebi - DEBUG - Stderr: Error: 'hotspot' is not an active connection.
+Error: no active connection provided.
+
+2024-09-17 22:49:56,313 - komorebi - DEBUG - Connection success: False
+2024-09-17 22:49:56,314 - komorebi - DEBUG - Connection message: Error: Error: 'hotspot' is not an active connection.
+Error: no active connection provided.
+
+2024-09-17 22:49:56,315 - komorebi - ERROR - Connection failed: Error: Error: 'hotspot' is not an active connection.
+Error: no active connection provided.
+
+2024-09-17 22:54:50,401 - komorebi - INFO - [app.py][Result] Program stopped

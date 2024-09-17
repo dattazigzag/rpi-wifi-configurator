@@ -15,8 +15,7 @@ class NetworkManager:
     def connect_to_wifi(ssid, password):
         commands = [
             f"sudo nmcli dev wifi connect '{ssid}' password '{password}'",
-            "sudo nmcli con down hotspot",
-            "sudo nmcli con delete hotspot"
+            "sudo nmcli con down hotspot"
         ]
         for cmd in commands:
             result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
