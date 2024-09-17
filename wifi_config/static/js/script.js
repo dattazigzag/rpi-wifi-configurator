@@ -2,8 +2,19 @@ const socket = io();
 
 const networkNameInput = document.getElementById('network-name');
 const passwordInput = document.getElementById('password');
+const togglePasswordBtn = document.getElementById('toggle-password');
 const connectBtn = document.getElementById('connect-btn');
 const statusDiv = document.getElementById('status');
+
+togglePasswordBtn.addEventListener('click', () => {
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePasswordBtn.textContent = '🙈';
+    } else {
+        passwordInput.type = 'password';
+        togglePasswordBtn.textContent = '👁️';
+    }
+});
 
 connectBtn.addEventListener('click', () => {
     const ssid = networkNameInput.value;

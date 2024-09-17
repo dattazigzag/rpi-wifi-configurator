@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <h1>Wi-Fi Configuration</h1>
-    <input type="text" id="network-name" placeholder="Enter network name (SSID)">
-    <input type="password" id="password" placeholder="Enter password">
-    <button id="connect-btn">Connect</button>
-    <div id="status"></div>
+    <div class="container">
+        <h1>Wi-Fi Configuration</h1>
+        <input type="text" id="network-name" placeholder="Enter network name (SSID)">
+        <div class="password-container">
+            <input type="password" id="password" placeholder="Enter password">
+            <button id="toggle-password" type="button">👁️</button>
+        </div>
+        <button id="connect-btn">Connect</button>
+        <div id="status"></div>
+    </div>
 
     <script src="/static/js/socket.io.js"></script>
     <script src="/static/js/script.js"></script>
