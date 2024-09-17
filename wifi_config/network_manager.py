@@ -13,19 +13,24 @@ class NetworkManager:
     @staticmethod
     def get_wifi_networks():
         try:
-            # Temporarily disable AP
+            print("Disabling AP mode for scanning...")
             subprocess.run(["sudo", "nmcli", "con", "down", "hotspot"], check=True)
             time.sleep(2)  # Give some time for the interface to switch modes
             
+            print("Scanning for networks...")
             cmd = "sudo nmcli -f SSID,FREQ dev wifi list | grep -v '5[0-9]\{3\}'"
             result = subprocess.run(cmd, shell=True, capture_output=True, text=True, check=True)
-            networks = [line.split()[0] for line in result.stdout.split('\n') if line.strip()]
+            print(f"Scan result: {result.stdout}")
             
-            # Re-enable AP
+            networks = [line.split()[0] for line in result.stdout.split('\n') if line.strip()]
+            print(f"Parsed networks: {networks}")
+            
+            print("Re-enabling AP mode...")
             subprocess.run(["sudo", "nmcli", "con", "up", "hotspot"], check=True)
             return networks
         except subprocess.CalledProcessError as e:
             print(f"Error getting Wi-Fi networks: {e}")
+            print(f"Error output: {e.stderr}")
             return []
 
     @staticmethod

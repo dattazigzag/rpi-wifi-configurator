@@ -29,6 +29,7 @@ exitApBtn.addEventListener('click', () => {
 });
 
 socket.on('networks_list', (data) => {
+    console.log("Received networks_list event", data);
     networkList.innerHTML = '<option value="">Select a network</option>';
     data.networks.forEach((network) => {
         const option = document.createElement('option');
@@ -37,6 +38,7 @@ socket.on('networks_list', (data) => {
         networkList.appendChild(option);
     });
     statusDiv.textContent = 'Networks refreshed.';
+    console.log("Updated network list in DOM");
 });
 
 socket.on('connection_result', (data) => {
@@ -57,5 +59,9 @@ socket.on('exit_ap_result', (data) => {
     }
 });
 
-// Initial network list population
-socket.emit('get_networks');
+// At the end of the file
+socket.on('connect', () => {
+    console.log('Connected to server');
+    socket.emit('get_networks');
+    console.log('Sent initial get_networks request');
+});

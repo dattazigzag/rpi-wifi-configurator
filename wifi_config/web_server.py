@@ -11,8 +11,11 @@ def index():
 
 @socketio.on('get_networks')
 def handle_get_networks():
+    print("Received request to get networks")
     networks = NetworkManager.get_wifi_networks()
+    print(f"Retrieved networks: {networks}")
     socketio.emit('networks_list', {'networks': networks})
+    print("Emitted networks_list event")
 
 @socketio.on('connect_wifi')
 def handle_connect_wifi(data):
@@ -31,4 +34,4 @@ def handle_exit_ap_mode():
     socketio.emit('exit_ap_result', {'success': success, 'message': message})
 
 def run_server():
-    socketio.run(app, host='0.0.0.0', port=80)
+    socketio.run(app, host='0.0.0.0', port=80, debug=True)
