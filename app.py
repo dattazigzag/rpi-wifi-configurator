@@ -13,7 +13,7 @@ def on_short_press():
     print("[*] Short Press")
 
 def on_long_press():
-    print("[***] Long Press")
+    print("\n[***] Long Press")
     print("[>] Running placeholder shell cmd")
     run_command("echo 'Long press action executed'")
 

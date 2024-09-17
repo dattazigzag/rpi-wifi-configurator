@@ -29,7 +29,8 @@ class Button:
             current_time = time.monotonic()
             
             if current_state != self.last_state and (current_time - self.last_change_time) > self.debounce_time:
-                if current_state:  # Button released
+                # Button released
+                if current_state:
                     if self.press_start_time:
                         press_duration = current_time - self.press_start_time
                         if press_duration >= self.long_press_time:
@@ -39,10 +40,12 @@ class Button:
                             if self.on_short_press:
                                 self.on_short_press()
                         self.press_start_time = None
-                else:  # Button pressed
+                # Button pressed
+                else:
                     self.press_start_time = current_time
                 
                 self.last_state = current_state
                 self.last_change_time = current_time
             
-            time.sleep(0.001)  # Check every 1 ms
+            # Check every 1 ms
+            time.sleep(0.001)  
