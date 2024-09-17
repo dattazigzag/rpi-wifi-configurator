@@ -3,7 +3,7 @@ from runner import run_command
 import time
 from wifi_config.network_manager import NetworkManager
 from wifi_config.web_server import run_server, server_running, stop_server
-from dns_server import DNSServer
+from wifi_config.dns_server import DNSServer
 import threading
 from logger import logger
 
