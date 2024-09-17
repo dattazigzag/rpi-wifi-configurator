@@ -2,10 +2,12 @@ from button import Button
 from runner import run_command
 import time
 from wifi_config.network_manager import NetworkManager
-from wifi_config.web_server import run_server, server_thread, server_running
+from wifi_config.web_server import run_server, server_running, stop_server
 import threading
 
-print("KOMOREBI LOG")
+# * Note: From webserver.py
+server_thread = None
+server_running = False
 
 
 # ------------------------------------------- #
@@ -45,13 +47,27 @@ button.on_long_press = on_long_press
 # ------------------------------------------ # 
 
 def main():
+    global server_thread, server_running
     while True:
         time.sleep(1)
         if not server_running and server_thread and not server_thread.is_alive():
-            print("[app.py][Result] Wi-Fi configuration process completed.")
+            print("Wi-Fi configuration process completed.")
             server_thread = None
 
 # ------------------------------------------ #
+
+print("-----------------------")
+print("KOMOREBI SYS VIEW | LOG")
+print("-----------------------")
+print("Artist: Saurabh Datta")
+print("Loc: Berlin, Germany")
+print("Date: Sept|2024")
+print("----------------------")
+
+# TBD 
+# If wifi connected print IP address
+# if not type this message below
+# print("\n[app.py][Next step] Long press the wifi button to ")
 
 
 if __name__ == "__main__":
