@@ -12,7 +12,7 @@ togglePasswordBtn.addEventListener('click', () => {
         togglePasswordBtn.textContent = '🙈';
     } else {
         passwordInput.type = 'password';
-        togglePasswordBtn.textContent = '👁️';
+        togglePasswordBtn.textContent = '👀';
     }
 });
 
