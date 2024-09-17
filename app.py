@@ -15,13 +15,13 @@ server_running = False
 # ------------------------------------------- #
 
 def on_short_press():
-    print("[app.py][*] Short Press")
+    print("[app.py][Event] Short Press")
     print("[app.py][Action] Do nothing ...")
 
 
 def on_long_press():
     global server_thread, server_running
-    print("\n[***] Long Press")
+    print("\n[app.py][Event] Long Press")
     if not server_running:
         print("[app.py][Action] Setting up Access Point ...")
         NetworkManager.setup_ap()

@@ -26,6 +26,10 @@ def handle_connect_wifi(data):
     ssid = data['ssid']
     password = data['password']
     success, message = NetworkManager.connect_to_wifi(ssid, password)
+    # Debug start
+    print("============> SUCCESS ")
+    print(success)
+    # Debug end
     if success:
         ip = NetworkManager.get_current_ip()
         socketio.emit('connection_result', {'success': True, 'ip': ip})
@@ -44,7 +48,7 @@ def stop_server():
     global server_running, server_thread
     server_running = False
     socketio.stop()
-    print("[web_server.py] Web server stopped.")
-    print("[web_server.py] Wi-Fi configuration process completed.")
+    print("[web_server.py][Result] Web server stopped.")
+    print("[web_server.py][Result] Wi-Fi configuration process completed.")
     if server_thread:
         server_thread.join()
