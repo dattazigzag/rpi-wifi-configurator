@@ -1,19 +1,21 @@
 from button import Button
-from runner import run_command
-import time
-from wifi_config.network_manager import NetworkManager
+from wifi_config.network_manager import NetworkManager, in_ap_mode, in_stn_mode
 from wifi_config.web_server import run_server, server_running, stop_server
-from wifi_config.dns_server import DNSServer
 import threading
+import time
 from logger import logger
 
+
+# ------------------------------------------- #
+# ************* Global Variables ************ #
+# ------------------------------------------- #
+
+AP_SELF_IP = "10.10.1.1"
+AP_SSID="KOMOREBI-PI-STICK"
 
 # * Note: From webserver and DNSServer 
 server_thread = None
 server_running = False
-dns_thread = None
-dns_server = None
-
 
 
 # ------------------------------------------- #
@@ -21,27 +23,20 @@ dns_server = None
 # ------------------------------------------- #
 
 def on_short_press():
-    logger.info("[app.py][Event] Short Press")
-    logger.info("[app.py][Action] Do nothing ...")
+    logger.info("[app.py][Event] Short Press detected... Do nothing!")
 
 
 def on_long_press():
-    global server_thread, server_running, dns_thread, dns_server
-    logger.info("\n[app.py][Event] Long Press")
+    global server_thread, server_running
+    logger.info("\n[app.py][Event] Long Press detected!")
     if not server_running:
         logger.info("[app.py][Action] Setting up Access Point ...")
         NetworkManager.setup_ap()
 
-        ip = "10.10.1.1"  # Static IP for the Access Point
-        
         server_thread = threading.Thread(target=run_server)
-        dns_server = DNSServer(ip)
-        dns_thread = threading.Thread(target=dns_server.run)
-
         server_thread.start()
-        dns_thread.start()
 
-        logger.info("[app.py][Result] Web server and DNS Server started. Connect to the Wi-Fi and navigate to http://10.10.1.1")
+        logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
     else:
         logger.info("[app.py][Result] Server is already running.")
 
@@ -61,17 +56,12 @@ button.on_long_press = on_long_press
 # ------------------------------------------ # 
 
 def main():
-    global server_thread, server_running, dns_thread, dns_server
+    global server_thread, server_running
     while True:
         time.sleep(1)
         if not server_running and server_thread and not server_thread.is_alive():
             logger.info("[app.py][Result] Wi-Fi configuration process completed.")
             server_thread = None
-            if dns_server:
-                dns_server.stop()
-                dns_thread.join()
-                dns_thread = None
-                dns_server = None
 
 # ------------------------------------------ #
 
@@ -83,14 +73,21 @@ logger.info("Loc: Berlin, Germany")
 logger.info("Date: Sept|2024")
 logger.info("-----------------------")
 
-# TBD 
-# If wifi connected print IP address
-# if not type this message below
-# logger.info("\n[app.py][Next step] Long press the wifi button to ")
+
+# If wifi connected print IP address. if not type a message below
+logger.info(f"[app.py][Status] Current IP: {NetworkManager.get_current_ip()}")
+if NetworkManager.get_current_ip() == AP_SELF_IP:
+    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://komorebi.local or http://komorebi.lan")
+else:
+    logger.info("[app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec")
+    
 
 
 if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        if server_running:
+            stop_server()
         logger.info("[app.py][Result] Program stopped")
+

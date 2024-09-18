@@ -86,3 +86,92 @@ Error: no active connection provided.
 Error: no active connection provided.
 
 2024-09-17 22:54:50,401 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 10:49:58,234 - komorebi - INFO - -----------------------
+2024-09-18 10:49:58,237 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 10:49:58,238 - komorebi - INFO - -----------------------
+2024-09-18 10:49:58,238 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 10:49:58,239 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 10:49:58,240 - komorebi - INFO - Date: Sept|2024
+2024-09-18 10:49:58,241 - komorebi - INFO - -----------------------
+2024-09-18 10:58:49,273 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 10:59:36,171 - komorebi - INFO - -----------------------
+2024-09-18 10:59:36,172 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 10:59:36,173 - komorebi - INFO - -----------------------
+2024-09-18 10:59:36,174 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 10:59:36,175 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 10:59:36,176 - komorebi - INFO - Date: Sept|2024
+2024-09-18 10:59:36,176 - komorebi - INFO - -----------------------
+2024-09-18 10:59:37,762 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:17:18,401 - komorebi - INFO - -----------------------
+2024-09-18 11:17:18,410 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:17:18,410 - komorebi - INFO - -----------------------
+2024-09-18 11:17:18,412 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:17:18,412 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:17:18,413 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:17:18,414 - komorebi - INFO - -----------------------
+2024-09-18 11:17:20,895 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:35:00,781 - komorebi - INFO - -----------------------
+2024-09-18 11:35:00,783 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:35:00,784 - komorebi - INFO - -----------------------
+2024-09-18 11:35:00,785 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:35:00,785 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:35:00,786 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:35:00,787 - komorebi - INFO - -----------------------
+2024-09-18 11:35:00,802 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 11:35:08,575 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:35:18,642 - komorebi - INFO - -----------------------
+2024-09-18 11:35:18,644 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:35:18,644 - komorebi - INFO - -----------------------
+2024-09-18 11:35:18,645 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:35:18,646 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:35:18,647 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:35:18,647 - komorebi - INFO - -----------------------
+2024-09-18 11:35:18,656 - komorebi - INFO - [app.py][Status] Current IP: 
+2024-09-18 11:35:40,320 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:39:20,554 - komorebi - INFO - -----------------------
+2024-09-18 11:39:20,555 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:39:20,556 - komorebi - INFO - -----------------------
+2024-09-18 11:39:20,557 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:39:20,557 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:39:20,558 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:39:20,559 - komorebi - INFO - -----------------------
+2024-09-18 11:39:20,568 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 11:39:20,577 - komorebi - DEBUG - [app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 11:39:33,502 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:39:35,753 - komorebi - INFO - -----------------------
+2024-09-18 11:39:35,754 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:39:35,755 - komorebi - INFO - -----------------------
+2024-09-18 11:39:35,756 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:39:35,757 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:39:35,757 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:39:35,758 - komorebi - INFO - -----------------------
+2024-09-18 11:39:35,768 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 11:39:35,778 - komorebi - INFO - [app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 11:39:40,059 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-18 11:39:40,061 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-18 11:39:41,548 - komorebi - INFO - [app.py][Event] Short Press
+2024-09-18 11:39:41,549 - komorebi - INFO - [app.py][Action] Do nothing ...
+2024-09-18 11:40:37,032 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:40:39,615 - komorebi - INFO - -----------------------
+2024-09-18 11:40:39,616 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:40:39,617 - komorebi - INFO - -----------------------
+2024-09-18 11:40:39,619 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:40:39,619 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:40:39,620 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:40:39,621 - komorebi - INFO - -----------------------
+2024-09-18 11:40:39,630 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 11:40:39,639 - komorebi - INFO - [app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 11:40:41,535 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 11:40:42,407 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 11:40:42,967 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 11:41:48,885 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 11:42:43,161 - komorebi - INFO - -----------------------
+2024-09-18 11:42:43,162 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 11:42:43,163 - komorebi - INFO - -----------------------
+2024-09-18 11:42:43,164 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 11:42:43,164 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 11:42:43,165 - komorebi - INFO - Date: Sept|2024
+2024-09-18 11:42:43,165 - komorebi - INFO - -----------------------
+2024-09-18 11:42:43,174 - komorebi - INFO - [app.py][Status] Current IP: 10.10.1.1
+2024-09-18 11:42:43,183 - komorebi - INFO - [app.py][Status] Connect to wifi access point: KOMOREBI-PI-STICK and go to: http://komorebi.local or http://komorebi.lan
+2024-09-18 11:42:55,524 - komorebi - INFO - [app.py][Result] Program stopped

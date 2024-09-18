@@ -4,11 +4,18 @@ from wifi_config.network_manager import NetworkManager
 import threading
 from logger import logger
 
-app = Flask(__name__)
-socketio = SocketIO(app)
+# ------------------------------------------- #
+# ************* Global Variables ************ #
+# ------------------------------------------- #
 
 server_running = False
 server_thread = None
+PORT = 80
+
+
+app = Flask(__name__)
+socketio = SocketIO(app)
+
 
 @app.route('/')
 def index():
@@ -42,7 +49,7 @@ def handle_connect_wifi(data):
 def run_server():
     global server_running
     server_running = True
-    socketio.run(app, host='0.0.0.0', port=80, debug=False, log_output=False)
+    socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False)
 
 def stop_server():
     global server_running, server_thread
