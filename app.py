@@ -27,20 +27,6 @@ def on_short_press():
     logger.info("[app.py][Event] Short Press detected... Do nothing!")
 
 
-# def on_long_press():
-#     global server_thread, server_running, is_ap_mode
-#     logger.info("")  # For a new line
-#     logger.info("[app.py][Event] Long Press detected!")
-
-#     current_ip = NetworkManager.get_current_ip()
-#     if current_ip != AP_SELF_IP and not is_ap_mode:
-#         logger.info("[app.py][Action] Setting up Access Point ...")
-#         NetworkManager.setup_ap()
-#         switch_to_ap_mode()
-#         logger.info(f"[app.py][Result] AP mode activated. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
-#     else:
-#         logger.info("[app.py][Result] Already in AP mode.")
-
 def on_long_press():
     global server_thread, server_running
     logger.info("")  # For a new line
@@ -69,62 +55,6 @@ button.on_long_press = on_long_press
 
 
 # ------------------------------------------ # 
-
-# def main():
-#     global server_thread, server_running
-    
-#     # Start the web server
-#     server_thread = threading.Thread(target=run_server)
-#     server_thread.start()
-#     server_running = True
-    
-#     # Initialize last known state
-#     last_known_ip = NetworkManager.get_current_ip()
-#     last_known_mode = "normal" if last_known_ip != AP_SELF_IP else "ap"
-    
-#     while True:
-#         time.sleep(1)
-#         current_ip = NetworkManager.get_current_ip()
-        
-#         if current_ip != last_known_ip:
-#             if current_ip != AP_SELF_IP and last_known_mode != "normal":
-#                 logger.info("[app.py][Action] Connected to Wi-Fi. Switching to normal mode...")
-#                 switch_to_normal_mode()
-#                 last_known_mode = "normal"
-#             elif current_ip == AP_SELF_IP and last_known_mode != "ap":
-#                 logger.info("[app.py][Action] Switched to AP mode.")
-#                 switch_to_ap_mode()
-#                 last_known_mode = "ap"
-            
-#             last_known_ip = current_ip
-
-# def main():
-#     global server_thread, server_running
-    
-#     # Start the web server
-#     server_thread = threading.Thread(target=run_server)
-#     server_thread.start()
-#     server_running = True
-    
-#     # Initialize last known state
-#     last_known_ip = NetworkManager.get_current_ip()
-#     last_known_mode = "ap" if NetworkManager.is_in_ap_mode() else "normal"
-    
-#     while True:
-#         time.sleep(1)
-#         current_ip = NetworkManager.get_current_ip()
-#         current_mode = "ap" if NetworkManager.is_in_ap_mode() else "normal"
-        
-#         if current_mode != last_known_mode:
-#             if current_mode == "normal" and not NetworkManager.is_in_ap_mode():
-#                 logger.info("[app.py][Action] Connected to Wi-Fi. Switching to normal mode...")
-#                 switch_to_normal_mode()
-#             elif current_mode == "ap":
-#                 logger.info("[app.py][Action] Switched to AP mode.")
-#                 switch_to_ap_mode()
-            
-#             last_known_mode = current_mode
-#             last_known_ip = current_ip
 
 def main():
     global server_thread, server_running

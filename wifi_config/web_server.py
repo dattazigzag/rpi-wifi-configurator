@@ -80,6 +80,7 @@ def handle_connect_wifi(data):
         socketio.emit('connection_result', {'success': True, 'ip': ip})
         is_ap_mode = False
         last_connection_success = True
+        switch_to_normal_mode()  # Add this line
     else:
         logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
@@ -112,6 +113,7 @@ def switch_to_ap_mode():
     logger.info("[web_server.py][Status] Switched to AP mode")
 
 def switch_to_normal_mode():
-    global is_ap_mode
+    global is_ap_mode, last_connection_success
     is_ap_mode = False
+    last_connection_success = True
     logger.info("[web_server.py][Status] Switched to normal mode")
