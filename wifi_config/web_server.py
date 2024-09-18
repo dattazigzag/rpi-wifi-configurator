@@ -52,22 +52,32 @@ def handle_connect_wifi(data):
         socketio.emit('connection_result', {'success': False, 'error': message})
 
 
-
-def stop_server():
-    global server_running, server_thread
-    server_running = False
-    logger.info("[web_server.py][Status] Stopping web server...")
-    try:
-        socketio.stop()
-    except Exception as e:
-        logger.error(f"[web_server.py][Error] Failed to stop socketio: {e}")
-    logger.info("[web_server.py][Result] Web server stopped.")
-    logger.info("[web_server.py][Result] Wi-Fi configuration process completed.")
-
-
 def run_server():
     global server_running
     server_running = True
     socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
     # Note: allow_unsafe_werkzeug=True allows the server to be stopped programmatically
 
+
+def stop_server():
+    global server_running, server_thread
+    if server_running:
+        logger.info("[web_server.py][Status] Stopping web server...")
+        
+        socketio.emit('server_shutdown', {'data': 'Server is shutting down'}, namespace='/')
+        
+        try:
+            socketio.stop()
+            server_running = False
+            logger.info("[web_server.py][Result] Web server stopped.")
+        except Exception as e:
+            logger.error(f"[web_server.py][Error] Failed to stop socketio: {e}")
+        
+       
+@socketio.on('connect')
+def test_connect():
+    logger.info("[web_server.py][Status] Client connected")
+
+@socketio.on('disconnect')
+def test_disconnect():
+    logger.info("[web_server.py][Status] Client disconnected")

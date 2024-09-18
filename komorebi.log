@@ -407,3 +407,14 @@ an active HTTP request. Consult the documentation on testing for
 information about how to avoid this problem.
 2024-09-18 14:38:25,721 - komorebi - INFO - [web_server.py][Result] Web server stopped.
 2024-09-18 14:38:25,722 - komorebi - INFO - [web_server.py][Result] Wi-Fi configuration process completed.
+2024-09-18 14:40:29,659 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:40:30,198 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:40:35,891 - komorebi - INFO - 
+2024-09-18 14:40:35,892 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 14:40:35,894 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 14:40:35,895 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]
+2024-09-18 14:40:41,055 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]
+2024-09-18 14:40:48,197 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 14:40:48,200 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://komorebi.local
+2024-09-18 14:40:48,697 - komorebi - INFO - [app.py][Result] Wi-Fi configuration process completed.
+2024-09-18 14:41:19,757 - komorebi - INFO - [app.py][Result] Program stopped
