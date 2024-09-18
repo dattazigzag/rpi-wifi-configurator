@@ -1,6 +1,6 @@
 from button import Button
 from wifi_config.network_manager import NetworkManager
-from wifi_config.web_server import run_server, server_running, stop_server
+from wifi_config.web_server import run_server, stop_server, server_running
 import threading
 import time
 from logger import logger
@@ -31,16 +31,19 @@ def on_long_press():
     global server_thread, server_running
     logger.info("")  # For a new line
     logger.info("[app.py][Event] Long Press detected!")
-    if not server_running:
-        logger.info("[app.py][Action] Setting up Access Point ...")
-        NetworkManager.setup_ap()
+    if server_running:
+        logger.info("[app.py][Action] Stopping existing server...")
+        stop_server()
+        server_thread = None
+        server_running = False
 
-        server_thread = threading.Thread(target=run_server)
-        server_thread.start()
+    logger.info("[app.py][Action] Setting up Access Point ...")
+    NetworkManager.setup_ap()
 
-        logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
-    else:
-        logger.info("[app.py][Result] Server is already running.")
+    server_thread = threading.Thread(target=run_server)
+    server_thread.start()
+
+    logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
 
 
 # ------------------------------------------ #
@@ -65,6 +68,15 @@ def main():
         if not server_running and server_thread and not server_thread.is_alive():
             logger.info("[app.py][Result] Wi-Fi configuration process completed.")
             server_thread = None
+        
+        # Check if we need to stop the server after successful connection
+        if server_running and NetworkManager.is_connected_to_wifi():
+            current_ip = NetworkManager.get_current_ip()
+            if current_ip != AP_SELF_IP:
+                logger.info("[app.py][Action] Connected to Wi-Fi. Stopping server...")
+                stop_server()
+                server_thread = None
+                server_running = False
 
 # ------------------------------------------ #
 

@@ -5,6 +5,13 @@ from logger import logger
 class NetworkManager:
     @staticmethod
     def setup_ap():
+        logger.info("[net..._manager.py][Result] Turning Wifi ON, even thiough it maybe ON...")
+        subprocess.run(["sudo", "nmcli", "radio", "wifi", "on"], check=False)
+        sleep(5)
+        logger.info("[net..._manager.py][Result] Turning predefined AP down, even thiough it maybe down...")
+        subprocess.run(["nmcli", "con", "down", "hotspot"], check=False)
+        sleep(2)
+        logger.info("[net..._manager.py][Result] Turning predefined AP up ...")
         try:
             subprocess.run(["nmcli", "con", "up", "hotspot"], check=True)
             sleep(2)
@@ -32,18 +39,14 @@ class NetworkManager:
             if not NetworkManager.is_connected_to_wifi():
                 return False, f"Failed to connect to {ssid}"
             
+            # If connected, bring down the hotspot
+            logger.info("[net..._manager.py][Action] Bringing down hotspot...")
+            subprocess.run(["nmcli", "con", "down", "hotspot"], check=False)
+            sleep(2)
+
             # If it could connect to user provided SSID ...
-            try:
-                subprocess.run(["nmcli", "con", "down", "hotspot"], check=True)
-                sleep(2)
-                logger.debug("[net..._manager.py][Result] Hotspot brought down successfully.")
-                return True, f"Connected successfully to {ssid}"
-            except subprocess.CalledProcessError as e:
-                logger.error(f"[net..._manager.py][Result] Failed to bring down hotspot: {e}")
-                return False, f"Could not bring AP hotspot down after connecting to WIFI in  mode"
-            
+            return True, f"Connected successfully to {ssid}"
         except subprocess.CalledProcessError as e:
-            print(e)
             logger.error(f"[net..._manager.py][Result] Error connecting to WiFi: {e.stderr}")
             return False, "Error connecting to WiFi"
 

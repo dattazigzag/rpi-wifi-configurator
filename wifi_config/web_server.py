@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 from wifi_config.network_manager import NetworkManager
 import threading
@@ -46,16 +46,23 @@ def handle_connect_wifi(data):
         logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
 
-def run_server():
-    global server_running
-    server_running = True
-    socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False)
+
 
 def stop_server():
     global server_running, server_thread
     server_running = False
-    socketio.stop()
-    logger.info("Web server stopped.")
-    logger.info("Wi-Fi configuration process completed.")
-    if server_thread:
-        server_thread.join()
+    logger.info("[web_server.py][Status] Stopping web server...")
+    try:
+        socketio.stop()
+    except Exception as e:
+        logger.error(f"[web_server.py][Error] Failed to stop socketio: {e}")
+    logger.info("[web_server.py][Result] Web server stopped.")
+    logger.info("[web_server.py][Result] Wi-Fi configuration process completed.")
+
+
+def run_server():
+    global server_running
+    server_running = True
+    socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
+    # Note: allow_unsafe_werkzeug=True allows the server to be stopped programmatically
+
