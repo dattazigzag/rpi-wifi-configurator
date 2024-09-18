@@ -43,7 +43,7 @@ def on_long_press():
     server_thread = threading.Thread(target=run_server)
     server_thread.start()
 
-    logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
+    logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://komorebi.local")
 
 
 # ------------------------------------------ #

@@ -272,3 +272,63 @@ Device 'wlan0' successfully activated with '6f444238-bbd5-4de9-8ec5-500d54575c86
 2024-09-18 13:36:15,872 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
 2024-09-18 13:36:15,873 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
 2024-09-18 13:36:25,266 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 14:00:55,772 - komorebi - INFO - -----------------------
+2024-09-18 14:00:55,773 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 14:00:55,774 - komorebi - INFO - -----------------------
+2024-09-18 14:00:55,775 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 14:00:55,775 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 14:00:55,776 - komorebi - INFO - Date: Sept|2024
+2024-09-18 14:00:55,777 - komorebi - INFO - -----------------------
+2024-09-18 14:00:55,785 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 14:00:55,794 - komorebi - INFO - [app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 14:01:18,425 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:01:19,122 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:01:25,095 - komorebi - INFO - 
+2024-09-18 14:01:25,096 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 14:01:25,097 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 14:01:25,098 - komorebi - INFO - [net..._manager.py][Result] Turning Wifi ON, even thiough it maybe ON...
+2024-09-18 14:01:30,283 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP down, even thiough it maybe down...
+2024-09-18 14:01:32,442 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP up ...
+2024-09-18 14:01:36,492 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 14:01:36,496 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+2024-09-18 14:02:34,229 - komorebi - ERROR - [net..._manager.py][Result] Error connecting to WiFi: Error: No network with SSID ':)' found.
+
+2024-09-18 14:02:34,230 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 14:02:34,232 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
+2024-09-18 14:02:34,233 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
+2024-09-18 14:02:41,869 - komorebi - ERROR - [net..._manager.py][Result] Error connecting to WiFi: Error: No network with SSID ':)' found.
+
+2024-09-18 14:02:41,870 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 14:02:41,873 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
+2024-09-18 14:02:41,874 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
+2024-09-18 14:02:58,432 - komorebi - ERROR - [net..._manager.py][Result] Error connecting to WiFi: Error: No network with SSID ':)' found.
+
+2024-09-18 14:02:58,433 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 14:02:58,434 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
+2024-09-18 14:02:58,435 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
+2024-09-18 14:04:02,569 - komorebi - ERROR - [net..._manager.py][Result] Error connecting to WiFi: Error: No network with SSID ':)' found.
+
+2024-09-18 14:04:02,571 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 14:04:02,572 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
+2024-09-18 14:04:02,573 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
+2024-09-18 14:04:22,265 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 14:10:53,915 - komorebi - INFO - -----------------------
+2024-09-18 14:10:53,917 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 14:10:53,918 - komorebi - INFO - -----------------------
+2024-09-18 14:10:53,919 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 14:10:53,920 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 14:10:53,921 - komorebi - INFO - Date: Sept|2024
+2024-09-18 14:10:53,921 - komorebi - INFO - -----------------------
+2024-09-18 14:10:53,955 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 14:10:53,969 - komorebi - INFO - [app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 14:11:01,744 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:11:01,944 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:11:06,628 - komorebi - INFO - 
+2024-09-18 14:11:06,629 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 14:11:06,630 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 14:11:06,631 - komorebi - INFO - [net..._manager.py][Result] Turning Wifi ON, even though it maybe ON...
+2024-09-18 14:11:12,117 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP down, even though it maybe down...
+2024-09-18 14:11:17,277 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP up ...
+2024-09-18 14:11:26,035 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 14:11:26,038 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+2024-09-18 14:11:27,349 - komorebi - INFO - [app.py][Result] Program stopped

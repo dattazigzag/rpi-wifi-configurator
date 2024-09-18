@@ -3,6 +3,8 @@ from flask_socketio import SocketIO
 from wifi_config.network_manager import NetworkManager
 import threading
 from logger import logger
+from time import sleep
+
 
 # ------------------------------------------- #
 # ************* Global Variables ************ #
@@ -64,5 +66,7 @@ def run_server():
     global server_running
     server_running = True
     socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
+    sleep(2)
+    logger.info("[web_server.py][Result] Web server Running...")
     # Note: allow_unsafe_werkzeug=True allows the server to be stopped programmatically
 
