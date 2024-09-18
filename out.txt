@@ -1,0 +1,58 @@
+2024-09-18 16:49:30,085 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 16:49:30,088 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+Exception in thread Thread-2 (run_server):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/pi/komorebi-stick/wifi_config/web_server.py", line 71, in run_server
+    socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
+  File "/home/pi/komorebi-stick/venv/lib/python3.11/site-packages/flask_socketio/__init__.py", line 656, in run
+    app.run(host=host, port=port, threaded=True,
+  File "/home/pi/komorebi-stick/venv/lib/python3.11/site-packages/flask/app.py", line 625, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "/home/pi/komorebi-stick/venv/lib/python3.11/site-packages/werkzeug/serving.py", line 1089, in run_simple
+    fd = int(os.environ["WERKZEUG_SERVER_FD"])
+             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen os>", line 679, in __getitem__
+KeyError: 'WERKZEUG_SERVER_FD'
+2024-09-18 16:49:30,289 - komorebi - INFO - [app.py][Result] Wi-Fi configuration process completed.
+^C2024-09-18 16:49:49,233 - komorebi - INFO - [app.py][Result] Program stopped
+
+
+2024-09-18 16:54:51,692 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+ * Serving Flask app 'wifi_config.web_server'
+ * Debug mode: off
+2024-09-18 16:55:40,983 - komorebi - INFO - [web_server.py][Status] Client connected
+
+
+
+
+2024-09-18 16:56:17,487 - komorebi - INFO - [web_server.py][Status] Stopping web server...
+Exception in thread Thread-28 (shutdown_server):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/pi/komorebi-stick/wifi_config/web_server.py", line 81, in shutdown_server
+    stop_server()
+  File "/home/pi/komorebi-stick/wifi_config/web_server.py", line 77, in stop_server
+    socketio.stop()
+  File "/home/pi/komorebi-stick/venv/lib/python3.11/site-packages/flask_socketio/__init__.py", line 732, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pi/komorebi-stick/venv/lib/python3.11/site-packages/werkzeug/local.py", line 318, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/pi/komorebi-stick/venv/lib/python3.11/site-packages/werkzeug/local.py", line 519, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+2024-09-18 16:56:40,876 - komorebi - INFO - [web_server.py][Status] Client disconnected
+2024-09-18 16:57:23,892 - komorebi - INFO - [web_server.py][Status] Client connected
+2024-09-18 17:00:23,942 - komorebi - INFO - [web_server.py][Status] Client disconnected
