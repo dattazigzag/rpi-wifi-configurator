@@ -34,16 +34,16 @@ def handle_connect_wifi(data):
     ssid = data['ssid']
     password = data['password']
     success, message = NetworkManager.connect_to_wifi(ssid, password)
-    logger.debug(f"Connection success: {success}")
-    logger.debug(f"Connection message: {message}")
+    logger.debug(f"[web_server.py][Status] Connection success: {success}")
+    logger.debug(f"[web_server.py][Status] Connection message: {message}")
     
     if success:
         ip = NetworkManager.get_current_ip()
-        logger.info(f'The current IP is: {ip}')
+        logger.info(f'[web_server.py][Result] The current IP is: {ip}')
         socketio.emit('connection_result', {'success': True, 'ip': ip})
         threading.Thread(target=stop_server).start()
     else:
-        logger.error(f'Connection failed: {message}')
+        logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
 
 def run_server():

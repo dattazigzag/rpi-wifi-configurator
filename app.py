@@ -1,5 +1,5 @@
 from button import Button
-from wifi_config.network_manager import NetworkManager, in_ap_mode, in_stn_mode
+from wifi_config.network_manager import NetworkManager
 from wifi_config.web_server import run_server, server_running, stop_server
 import threading
 import time
@@ -28,7 +28,8 @@ def on_short_press():
 
 def on_long_press():
     global server_thread, server_running
-    logger.info("\n[app.py][Event] Long Press detected!")
+    logger.info("")  # For a new line
+    logger.info("[app.py][Event] Long Press detected!")
     if not server_running:
         logger.info("[app.py][Action] Setting up Access Point ...")
         NetworkManager.setup_ap()
@@ -77,9 +78,9 @@ logger.info("-----------------------")
 # If wifi connected print IP address. if not type a message below
 logger.info(f"[app.py][Status] Current IP: {NetworkManager.get_current_ip()}")
 if NetworkManager.get_current_ip() == AP_SELF_IP:
-    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://komorebi.local or http://komorebi.lan")
+    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://komorebi.local or http://komorebi.lan to provide 2.5GHz Wifi credentials")
 else:
-    logger.info("[app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec")
+    logger.info("[app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec")
     
 
 

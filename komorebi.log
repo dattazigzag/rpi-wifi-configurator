@@ -1,177 +1,33 @@
-2024-09-17 22:20:58,817 - komorebi - INFO - -----------------------
-2024-09-17 22:20:58,818 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-17 22:20:58,819 - komorebi - INFO - -----------------------
-2024-09-17 22:20:58,820 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-17 22:20:58,821 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-17 22:20:58,821 - komorebi - INFO - Date: Sept|2024
-2024-09-17 22:20:58,822 - komorebi - INFO - -----------------------
-2024-09-17 22:21:25,680 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-17 22:22:08,248 - komorebi - INFO - -----------------------
-2024-09-17 22:22:08,249 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-17 22:22:08,249 - komorebi - INFO - -----------------------
-2024-09-17 22:22:08,250 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-17 22:22:08,251 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-17 22:22:08,252 - komorebi - INFO - Date: Sept|2024
-2024-09-17 22:22:08,252 - komorebi - INFO - -----------------------
-2024-09-17 22:22:17,794 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:22:17,795 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:22:18,590 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:22:18,591 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:22:19,518 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:22:19,520 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:22:25,191 - komorebi - INFO - 
-[app.py][Event] Long Press
-2024-09-17 22:22:25,192 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
-2024-09-17 22:22:27,390 - komorebi - INFO - Access Point set up successfully.
-2024-09-17 22:22:27,399 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
-2024-09-17 22:24:22,006 - komorebi - DEBUG - Command: sudo nmcli dev wifi connect ':)' password 'jEmx4vpR'
-2024-09-17 22:24:22,007 - komorebi - DEBUG - Return code: 0
-2024-09-17 22:24:22,009 - komorebi - DEBUG - Stdout: [2K
+2024-09-18 12:59:36,083 - komorebi - INFO - -----------------------
+2024-09-18 12:59:36,084 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 12:59:36,085 - komorebi - INFO - -----------------------
+2024-09-18 12:59:36,086 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 12:59:36,086 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 12:59:36,087 - komorebi - INFO - Date: Sept|2024
+2024-09-18 12:59:36,088 - komorebi - INFO - -----------------------
+2024-09-18 12:59:36,098 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 12:59:36,107 - komorebi - INFO - [app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 12:59:44,287 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 12:59:44,485 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 12:59:50,275 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 12:59:58,412 - komorebi - INFO - 
+2024-09-18 12:59:58,414 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 12:59:58,414 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 13:00:02,479 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 13:00:02,482 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
+2024-09-18 13:00:56,206 - komorebi - ERROR - [net..._manager.py][Result] Error connecting to WiFi: Error: 802-11-wireless-security.psk: property is invalid.
+
+2024-09-18 13:00:56,208 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 13:00:56,208 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
+2024-09-18 13:00:56,209 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
+2024-09-18 13:01:04,312 - komorebi - DEBUG - [net..._manager.py][Result] Command: nmcli dev wifi connect ':)' password 'jEmx4vpR'
+2024-09-18 13:01:04,315 - komorebi - DEBUG - [net..._manager.py][Result] Return code: 0
+2024-09-18 13:01:04,317 - komorebi - DEBUG - [net..._manager.py][Result] Stdout: [2K
 Device 'wlan0' successfully activated with '6f444238-bbd5-4de9-8ec5-500d54575c86'.
 
-2024-09-17 22:24:22,010 - komorebi - DEBUG - Stderr: 
-2024-09-17 22:24:22,226 - komorebi - DEBUG - Command: sudo nmcli con down hotspot
-2024-09-17 22:24:22,227 - komorebi - DEBUG - Return code: 10
-2024-09-17 22:24:22,227 - komorebi - DEBUG - Stdout: 
-2024-09-17 22:24:22,228 - komorebi - DEBUG - Stderr: Error: 'hotspot' is not an active connection.
-Error: no active connection provided.
-
-2024-09-17 22:24:22,229 - komorebi - DEBUG - Connection success: False
-2024-09-17 22:24:22,229 - komorebi - DEBUG - Connection message: Error: Error: 'hotspot' is not an active connection.
-Error: no active connection provided.
-
-2024-09-17 22:24:22,230 - komorebi - ERROR - Connection failed: Error: Error: 'hotspot' is not an active connection.
-Error: no active connection provided.
-
-2024-09-17 22:24:45,418 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:24:45,419 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:24:46,290 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:24:46,291 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:24:47,024 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:24:47,025 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:45:06,044 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-17 22:47:59,395 - komorebi - INFO - -----------------------
-2024-09-17 22:47:59,396 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-17 22:47:59,397 - komorebi - INFO - -----------------------
-2024-09-17 22:47:59,398 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-17 22:47:59,399 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-17 22:47:59,399 - komorebi - INFO - Date: Sept|2024
-2024-09-17 22:47:59,400 - komorebi - INFO - -----------------------
-2024-09-17 22:48:03,069 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:48:03,071 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:48:03,516 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-17 22:48:03,517 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-17 22:48:08,715 - komorebi - INFO - 
-[app.py][Event] Long Press
-2024-09-17 22:48:08,716 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
-2024-09-17 22:48:10,922 - komorebi - INFO - Access Point set up successfully.
-2024-09-17 22:48:10,929 - komorebi - INFO - [app.py][Result] Web server and DNS Server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
-2024-09-17 22:49:56,088 - komorebi - DEBUG - Command: sudo nmcli dev wifi connect ':)' password 'jEmx4vpR'
-2024-09-17 22:49:56,089 - komorebi - DEBUG - Return code: 0
-2024-09-17 22:49:56,099 - komorebi - DEBUG - Stdout: [2K
-Device 'wlan0' successfully activated with '6f444238-bbd5-4de9-8ec5-500d54575c86'.
-
-2024-09-17 22:49:56,100 - komorebi - DEBUG - Stderr: 
-2024-09-17 22:49:56,309 - komorebi - DEBUG - Command: sudo nmcli con down hotspot
-2024-09-17 22:49:56,310 - komorebi - DEBUG - Return code: 10
-2024-09-17 22:49:56,311 - komorebi - DEBUG - Stdout: 
-2024-09-17 22:49:56,312 - komorebi - DEBUG - Stderr: Error: 'hotspot' is not an active connection.
-Error: no active connection provided.
-
-2024-09-17 22:49:56,313 - komorebi - DEBUG - Connection success: False
-2024-09-17 22:49:56,314 - komorebi - DEBUG - Connection message: Error: Error: 'hotspot' is not an active connection.
-Error: no active connection provided.
-
-2024-09-17 22:49:56,315 - komorebi - ERROR - Connection failed: Error: Error: 'hotspot' is not an active connection.
-Error: no active connection provided.
-
-2024-09-17 22:54:50,401 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 10:49:58,234 - komorebi - INFO - -----------------------
-2024-09-18 10:49:58,237 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 10:49:58,238 - komorebi - INFO - -----------------------
-2024-09-18 10:49:58,238 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 10:49:58,239 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 10:49:58,240 - komorebi - INFO - Date: Sept|2024
-2024-09-18 10:49:58,241 - komorebi - INFO - -----------------------
-2024-09-18 10:58:49,273 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 10:59:36,171 - komorebi - INFO - -----------------------
-2024-09-18 10:59:36,172 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 10:59:36,173 - komorebi - INFO - -----------------------
-2024-09-18 10:59:36,174 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 10:59:36,175 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 10:59:36,176 - komorebi - INFO - Date: Sept|2024
-2024-09-18 10:59:36,176 - komorebi - INFO - -----------------------
-2024-09-18 10:59:37,762 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:17:18,401 - komorebi - INFO - -----------------------
-2024-09-18 11:17:18,410 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:17:18,410 - komorebi - INFO - -----------------------
-2024-09-18 11:17:18,412 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:17:18,412 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:17:18,413 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:17:18,414 - komorebi - INFO - -----------------------
-2024-09-18 11:17:20,895 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:35:00,781 - komorebi - INFO - -----------------------
-2024-09-18 11:35:00,783 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:35:00,784 - komorebi - INFO - -----------------------
-2024-09-18 11:35:00,785 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:35:00,785 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:35:00,786 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:35:00,787 - komorebi - INFO - -----------------------
-2024-09-18 11:35:00,802 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
-2024-09-18 11:35:08,575 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:35:18,642 - komorebi - INFO - -----------------------
-2024-09-18 11:35:18,644 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:35:18,644 - komorebi - INFO - -----------------------
-2024-09-18 11:35:18,645 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:35:18,646 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:35:18,647 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:35:18,647 - komorebi - INFO - -----------------------
-2024-09-18 11:35:18,656 - komorebi - INFO - [app.py][Status] Current IP: 
-2024-09-18 11:35:40,320 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:39:20,554 - komorebi - INFO - -----------------------
-2024-09-18 11:39:20,555 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:39:20,556 - komorebi - INFO - -----------------------
-2024-09-18 11:39:20,557 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:39:20,557 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:39:20,558 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:39:20,559 - komorebi - INFO - -----------------------
-2024-09-18 11:39:20,568 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
-2024-09-18 11:39:20,577 - komorebi - DEBUG - [app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec
-2024-09-18 11:39:33,502 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:39:35,753 - komorebi - INFO - -----------------------
-2024-09-18 11:39:35,754 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:39:35,755 - komorebi - INFO - -----------------------
-2024-09-18 11:39:35,756 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:39:35,757 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:39:35,757 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:39:35,758 - komorebi - INFO - -----------------------
-2024-09-18 11:39:35,768 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
-2024-09-18 11:39:35,778 - komorebi - INFO - [app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec
-2024-09-18 11:39:40,059 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-18 11:39:40,061 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-18 11:39:41,548 - komorebi - INFO - [app.py][Event] Short Press
-2024-09-18 11:39:41,549 - komorebi - INFO - [app.py][Action] Do nothing ...
-2024-09-18 11:40:37,032 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:40:39,615 - komorebi - INFO - -----------------------
-2024-09-18 11:40:39,616 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:40:39,617 - komorebi - INFO - -----------------------
-2024-09-18 11:40:39,619 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:40:39,619 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:40:39,620 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:40:39,621 - komorebi - INFO - -----------------------
-2024-09-18 11:40:39,630 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
-2024-09-18 11:40:39,639 - komorebi - INFO - [app.py][Status] If you want to reconfigure wifi, Long Press the Wifi Reset Button for more than 5 sec
-2024-09-18 11:40:41,535 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
-2024-09-18 11:40:42,407 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
-2024-09-18 11:40:42,967 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
-2024-09-18 11:41:48,885 - komorebi - INFO - [app.py][Result] Program stopped
-2024-09-18 11:42:43,161 - komorebi - INFO - -----------------------
-2024-09-18 11:42:43,162 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
-2024-09-18 11:42:43,163 - komorebi - INFO - -----------------------
-2024-09-18 11:42:43,164 - komorebi - INFO - Artist: Saurabh Datta
-2024-09-18 11:42:43,164 - komorebi - INFO - Loc: Berlin, Germany
-2024-09-18 11:42:43,165 - komorebi - INFO - Date: Sept|2024
-2024-09-18 11:42:43,165 - komorebi - INFO - -----------------------
-2024-09-18 11:42:43,174 - komorebi - INFO - [app.py][Status] Current IP: 10.10.1.1
-2024-09-18 11:42:43,183 - komorebi - INFO - [app.py][Status] Connect to wifi access point: KOMOREBI-PI-STICK and go to: http://komorebi.local or http://komorebi.lan
-2024-09-18 11:42:55,524 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 13:01:04,319 - komorebi - DEBUG - [net..._manager.py][Result] Stderr: 
+2024-09-18 13:01:19,618 - komorebi - ERROR - [net..._manager.py][Result] Failed to bring down hotspot: Command '['nmcli', 'con', 'down', 'hotspot']' returned non-zero exit status 10.
+2024-09-18 13:01:19,620 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 13:01:19,621 - komorebi - DEBUG - [web_server.py][Status] Connection message: Could not bring AP hotspot down after connecting to WIFI in  mode
+2024-09-18 13:01:19,622 - komorebi - ERROR - [web_server.py][Result] Connection failed: Could not bring AP hotspot down after connecting to WIFI in  mode
+2024-09-18 13:06:11,881 - komorebi - INFO - [app.py][Result] Program stopped
