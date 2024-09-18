@@ -6,11 +6,11 @@ class NetworkManager:
     @staticmethod
     def setup_ap():
         logger.info("[net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]")
-        subprocess.run(["nmcli", "con", "down", "hotspot"], check=False)
+        subprocess.run(["nmcli", "con", "down", "hotspot"], shell=True, check=False)
         sleep(5)
         logger.info("[net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]")
         try:
-            subprocess.run(["nmcli", "con", "up", "hotspot"], check=True)
+            subprocess.run(["nmcli", "con", "up", "hotspot"], shell=True, check=True)
             sleep(5)
             logger.info("[net..._manager.py][Result] Access Point set up successfully.")
         except subprocess.CalledProcessError as e:
@@ -27,10 +27,7 @@ class NetworkManager:
         if not NetworkManager.is_connected_to_wifi():
             return False, f"Failed to connect to {ssid}"
 
-        # TBD: Do we even need it? As, after conneting to WIFI it automatically goes into STN mode 
-        # logger.info("[net..._manager.py][Result] Turning predefined AP down [wait 5 sec ...]")
-        # subprocess.run(["nmcli", "con", "down", "hotspot"], check=False)
-        # sleep(5)
+        # Note: We do need to pull down the hotspot as, after conneting to WIFI it automatically goes into STN mode 
 
         # If it could connect to user provided SSID ...
         return True, f"Connected successfully to {ssid}"

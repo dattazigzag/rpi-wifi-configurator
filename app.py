@@ -43,7 +43,7 @@ def on_long_press():
     server_thread = threading.Thread(target=run_server)
     server_thread.start()
 
-    logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://komorebi.local")
+    logger.info(f"[app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
 
 
 # ------------------------------------------ #
@@ -69,14 +69,17 @@ def main():
             logger.info("[app.py][Result] Wi-Fi configuration process completed.")
             server_thread = None
         
-        # Check if we need to stop the server after successful connection
-        if server_running and NetworkManager.is_connected_to_wifi():
-            current_ip = NetworkManager.get_current_ip()
-            if current_ip != AP_SELF_IP:
-                logger.info("[app.py][Action] Connected to Wi-Fi. Stopping server...")
-                stop_server()
-                server_thread = None
-                server_running = False
+        # The server will now stop itself after a successful connection,
+        # so we don't need to check and stop it here anymore.
+        
+        # # Check if we need to stop the server after successful connection
+        # if server_running and NetworkManager.is_connected_to_wifi():
+        #     current_ip = NetworkManager.get_current_ip()
+        #     if current_ip != AP_SELF_IP:
+        #         logger.info("[app.py][Action] Connected to Wi-Fi. Stopping server...")
+        #         stop_server()
+        #         server_thread = None
+        #         server_running = False
 
 # ------------------------------------------ #
 
