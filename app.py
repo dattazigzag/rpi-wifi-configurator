@@ -12,6 +12,7 @@ from logger import logger
 
 AP_SELF_IP = "10.10.1.1"
 AP_SSID="KOMOREBI-PI-STICK"
+WIFI_RESET_PIN = 23
 
 # * Note: From webserver and DNSServer 
 server_thread = None
@@ -46,11 +47,12 @@ def on_long_press():
 # ******** Create a Button instance ******** #
 # ------------------------------------------ #
 
-# Default GPIO pin is 23 
-# Default debounce time is 10 ms (0.01)
-# Default long press threshold time period is 5 sec
+button = Button(pin=WIFI_RESET_PIN, debounce_time=0.02, long_press_time=4)
+# Note: Default Values in the class 
+# GPIO pin is 23 
+# Debounce time is 10 ms (0.01)
+# Long press threshold time period is 5 sec
 
-button = Button(pin=23, debounce_time=0.02, long_press_time=4)
 button.on_short_press = on_short_press
 button.on_long_press = on_long_press
 
