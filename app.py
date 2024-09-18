@@ -68,18 +68,15 @@ def main():
         if not server_running and server_thread and not server_thread.is_alive():
             logger.info("[app.py][Result] Wi-Fi configuration process completed.")
             server_thread = None
-        
-        # The server will now stop itself after a successful connection,
-        # so we don't need to check and stop it here anymore.
-        
-        # # Check if we need to stop the server after successful connection
-        # if server_running and NetworkManager.is_connected_to_wifi():
-        #     current_ip = NetworkManager.get_current_ip()
-        #     if current_ip != AP_SELF_IP:
-        #         logger.info("[app.py][Action] Connected to Wi-Fi. Stopping server...")
-        #         stop_server()
-        #         server_thread = None
-        #         server_running = False
+
+        # Check if we need to stop the server after successful connection
+        if server_running and NetworkManager.is_connected_to_wifi():
+            current_ip = NetworkManager.get_current_ip()
+            if current_ip != AP_SELF_IP:
+                logger.info("[app.py][Action] Connected to Wi-Fi. Stopping server...")
+                stop_server()
+                server_thread = None
+                server_running = False
 
 # ------------------------------------------ #
 

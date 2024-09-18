@@ -1,23 +1,28 @@
+import os
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 from wifi_config.network_manager import NetworkManager
 import threading
 from logger import logger
 from time import sleep
-import os
+from werkzeug.serving import run_simple
+
+
+# Set environment variables to suppress warnings
+os.environ['WERKZEUG_RUN_MAIN'] = 'true'
+os.environ['FLASK_ENV'] = 'production'
+
 
 # ------------------------------------------- #
-# ************* Global Variables ************ #
+# * Global Variables ** #
 # ------------------------------------------- #
 
 server_running = False
 server_thread = None
 PORT = 80
 
-
-app = Flask(__name__)
+app = Flask(name)
 socketio = SocketIO(app)
-
 
 @socketio.on('connect')
 def test_connect():
@@ -39,19 +44,16 @@ def serve_socketio_js():
 def serve_image(filename):
     return app.send_static_file(f'images/{filename}')
 
-
-
-
 @socketio.on('connect_wifi')
 def handle_connect_wifi(data):
     ssid = data['ssid']
     password = data['password']
 
     success, message = NetworkManager.connect_to_wifi(ssid, password)
-    
+
     logger.debug(f"[web_server.py][Status] Connection success: {success}")
     logger.debug(f"[web_server.py][Status] Connection message: {message}")
-    
+
     if success:
         ip = NetworkManager.get_current_ip()
         logger.info(f'[web_server.py][Result] The current IP is: {ip}')
@@ -62,12 +64,11 @@ def handle_connect_wifi(data):
         logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
 
-
 def run_server():
     global server_running
     server_running = True
-    socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
-
+    # socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
+    run_simple('0.0.0.0', PORT, app, use_reloader=False, use_debugger=False)
 
 def stop_server():
     global server_running, server_thread
