@@ -332,3 +332,78 @@ Device 'wlan0' successfully activated with '6f444238-bbd5-4de9-8ec5-500d54575c86
 2024-09-18 14:11:26,035 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
 2024-09-18 14:11:26,038 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://10.10.1.1
 2024-09-18 14:11:27,349 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 14:19:42,923 - komorebi - INFO - -----------------------
+2024-09-18 14:19:42,924 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 14:19:42,925 - komorebi - INFO - -----------------------
+2024-09-18 14:19:42,926 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 14:19:42,926 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 14:19:42,927 - komorebi - INFO - Date: Sept|2024
+2024-09-18 14:19:42,927 - komorebi - INFO - -----------------------
+2024-09-18 14:19:42,945 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 14:19:42,954 - komorebi - INFO - [app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 14:19:53,306 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:19:53,536 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:20:00,216 - komorebi - INFO - 
+2024-09-18 14:20:00,217 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 14:20:00,218 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 14:20:00,218 - komorebi - INFO - [net..._manager.py][Result] Turning Wifi OFF [wait 5 sec ...]
+2024-09-18 14:20:06,173 - komorebi - INFO - [net..._manager.py][Result] Turning Wifi ON [wait 5 sec ...]
+2024-09-18 14:20:11,396 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]
+2024-09-18 14:20:16,568 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]
+2024-09-18 14:20:23,608 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 14:20:23,611 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://komorebi.local
+2024-09-18 14:22:18,335 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 14:25:43,554 - komorebi - INFO - -----------------------
+2024-09-18 14:25:43,555 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 14:25:43,556 - komorebi - INFO - -----------------------
+2024-09-18 14:25:43,558 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 14:25:43,559 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 14:25:43,560 - komorebi - INFO - Date: Sept|2024
+2024-09-18 14:25:43,560 - komorebi - INFO - -----------------------
+2024-09-18 14:25:43,571 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 14:25:43,580 - komorebi - INFO - [app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 14:25:52,103 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:25:52,497 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:25:52,868 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:25:58,121 - komorebi - INFO - 
+2024-09-18 14:25:58,122 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 14:25:58,123 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 14:25:58,125 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]
+2024-09-18 14:26:03,301 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]
+2024-09-18 14:26:10,370 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 14:26:10,373 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://komorebi.local
+2024-09-18 14:27:21,082 - komorebi - ERROR - [net..._manager.py][Result] Error connecting to WiFi: Error: No network with SSID ':)' found.
+
+2024-09-18 14:27:21,083 - komorebi - DEBUG - [web_server.py][Status] Connection success: False
+2024-09-18 14:27:21,084 - komorebi - DEBUG - [web_server.py][Status] Connection message: Error connecting to WiFi
+2024-09-18 14:27:21,085 - komorebi - ERROR - [web_server.py][Result] Connection failed: Error connecting to WiFi
+2024-09-18 14:27:34,463 - komorebi - INFO - [app.py][Result] Program stopped
+2024-09-18 14:37:09,639 - komorebi - INFO - -----------------------
+2024-09-18 14:37:09,640 - komorebi - INFO - KOMOREBI SYS VIEW | LOG
+2024-09-18 14:37:09,640 - komorebi - INFO - -----------------------
+2024-09-18 14:37:09,641 - komorebi - INFO - Artist: Saurabh Datta
+2024-09-18 14:37:09,642 - komorebi - INFO - Loc: Berlin, Germany
+2024-09-18 14:37:09,642 - komorebi - INFO - Date: Sept|2024
+2024-09-18 14:37:09,643 - komorebi - INFO - -----------------------
+2024-09-18 14:37:09,656 - komorebi - INFO - [app.py][Status] Current IP: 192.168.1.110
+2024-09-18 14:37:09,665 - komorebi - INFO - [app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec
+2024-09-18 14:37:11,420 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:37:11,613 - komorebi - INFO - [app.py][Event] Short Press detected... Do nothing!
+2024-09-18 14:37:17,421 - komorebi - INFO - 
+2024-09-18 14:37:17,422 - komorebi - INFO - [app.py][Event] Long Press detected!
+2024-09-18 14:37:17,423 - komorebi - INFO - [app.py][Action] Setting up Access Point ...
+2024-09-18 14:37:17,424 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]
+2024-09-18 14:37:22,594 - komorebi - INFO - [net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]
+2024-09-18 14:37:29,696 - komorebi - INFO - [net..._manager.py][Result] Access Point set up successfully.
+2024-09-18 14:37:29,700 - komorebi - INFO - [app.py][Result] Web server started. Connect to the Wi-Fi and navigate to http://komorebi.local
+2024-09-18 14:38:15,700 - komorebi - DEBUG - [web_server.py][Status] Connection success: True
+2024-09-18 14:38:15,701 - komorebi - DEBUG - [web_server.py][Status] Connection message: Connected successfully to :)
+2024-09-18 14:38:25,715 - komorebi - INFO - [web_server.py][Result] The current IP is: 192.168.1.110
+2024-09-18 14:38:25,717 - komorebi - INFO - [web_server.py][Status] Stopping web server...
+2024-09-18 14:38:25,720 - komorebi - ERROR - [web_server.py][Error] Failed to stop socketio: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+2024-09-18 14:38:25,721 - komorebi - INFO - [web_server.py][Result] Web server stopped.
+2024-09-18 14:38:25,722 - komorebi - INFO - [web_server.py][Result] Wi-Fi configuration process completed.

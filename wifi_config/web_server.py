@@ -3,8 +3,7 @@ from flask_socketio import SocketIO
 from wifi_config.network_manager import NetworkManager
 import threading
 from logger import logger
-from time import sleep
-
+import time
 
 # ------------------------------------------- #
 # ************* Global Variables ************ #
@@ -35,9 +34,13 @@ def serve_image(filename):
 def handle_connect_wifi(data):
     ssid = data['ssid']
     password = data['password']
+
     success, message = NetworkManager.connect_to_wifi(ssid, password)
+    
     logger.debug(f"[web_server.py][Status] Connection success: {success}")
     logger.debug(f"[web_server.py][Status] Connection message: {message}")
+
+    # time.sleep(10)
     
     if success:
         ip = NetworkManager.get_current_ip()
@@ -66,7 +69,5 @@ def run_server():
     global server_running
     server_running = True
     socketio.run(app, host='0.0.0.0', port=PORT, debug=False, log_output=False, allow_unsafe_werkzeug=True)
-    sleep(2)
-    logger.info("[web_server.py][Result] Web server Running...")
     # Note: allow_unsafe_werkzeug=True allows the server to be stopped programmatically
 
