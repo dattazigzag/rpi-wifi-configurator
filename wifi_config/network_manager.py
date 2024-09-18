@@ -5,6 +5,9 @@ from logger import logger
 class NetworkManager:
     @staticmethod
     def setup_ap():
+        logger.info("[net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]")
+        subprocess.run(["nmcli", "con", "down", "hotspot"], check=False)
+        sleep(5)
         logger.info("[net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]")
         try:
             subprocess.run(["nmcli", "con", "up", "hotspot"], check=True)
@@ -13,34 +16,19 @@ class NetworkManager:
         except subprocess.CalledProcessError as e:
             logger.error(f"[net..._manager.py][Result] Failed to set up Access Point: {e}")
     
-
+    
     @staticmethod
     def connect_to_wifi(ssid, password):
         cmd = f"nmcli dev wifi connect '{ssid}' password '{password}'"
-        subprocess.run(cmd, shell=True, check=False)
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         # Wait for connection to stabilize
         sleep(10)
         # If it could not connect to user provided SSID ...
         if not NetworkManager.is_connected_to_wifi():
             return False, f"Failed to connect to {ssid}"
 
-        # Note: We do need to pull down the hotspot as, after conneting to WIFI it automatically goes into STN mode 
-
         # If it could connect to user provided SSID ...
         return True, f"Connected successfully to {ssid}"
-    
-    # @staticmethod
-    # def connect_to_wifi(ssid, password):
-    #     cmd = f"nmcli dev wifi connect '{ssid}' password '{password}'"
-    #     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-    #     # Wait for connection to stabilize
-    #     sleep(10)
-    #     # If it could not connect to user provided SSID ...
-    #     if not NetworkManager.is_connected_to_wifi():
-    #         return False, f"Failed to connect to {ssid}"
-
-    #     # If it could connect to user provided SSID ...
-    #     return True, f"Connected successfully to {ssid}"
     
 
     @staticmethod
