@@ -6,11 +6,11 @@ class NetworkManager:
     @staticmethod
     def setup_ap():
         logger.info("[net..._manager.py][Result] Turning predefined AP down, even though it maybe down... [wait 5 sec ...]")
-        subprocess.run(["nmcli", "con", "down", "hotspot"], shell=True, check=False)
+        subprocess.run(["nmcli", "con", "down", "hotspot"], check=False)
         sleep(5)
         logger.info("[net..._manager.py][Result] Turning predefined AP up ... [wait 5 sec ...]")
         try:
-            subprocess.run(["nmcli", "con", "up", "hotspot"], shell=True, check=True)
+            subprocess.run(["nmcli", "con", "up", "hotspot"], check=True)
             sleep(5)
             logger.info("[net..._manager.py][Result] Access Point set up successfully.")
         except subprocess.CalledProcessError as e:
