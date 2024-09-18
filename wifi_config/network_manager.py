@@ -15,7 +15,7 @@ class NetworkManager:
             logger.info("[net..._manager.py][Result] Access Point set up successfully.")
         except subprocess.CalledProcessError as e:
             logger.error(f"[net..._manager.py][Result] Failed to set up Access Point: {e}")
-
+    
 
     @staticmethod
     def connect_to_wifi(ssid, password):
@@ -34,14 +34,31 @@ class NetworkManager:
         
 
     @staticmethod
-    def is_connected_to_wifi():
-        cmd = "nmcli -t -f TYPE,STATE dev | grep '^wifi:connected$'"
-        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-        return result.returncode == 0
-
-
-    @staticmethod
     def get_current_ip():
         cmd = "hostname -I | awk '{print $1}'"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         return result.stdout.strip()
+    
+    # @staticmethod
+    # def is_connected_to_wifi():
+    #     cmd = "nmcli -t -f TYPE,STATE dev | grep '^wifi:connected$'"
+    #     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    #     return result.returncode == 0
+
+    # @staticmethod
+    # def is_in_ap_mode():
+    #     cmd = "nmcli -t -f NAME con show --active | grep '^hotspot$'"
+    #     result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    #     return result.returncode == 0
+    
+    @staticmethod
+    def is_connected_to_wifi():
+        cmd = "nmcli -t -f TYPE,STATE dev | grep '^wifi:connected$'"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        return result.returncode == 0 and not NetworkManager.is_in_ap_mode()
+
+    @staticmethod
+    def is_in_ap_mode():
+        cmd = "nmcli -t -f NAME con show --active | grep '^hotspot$'"
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        return result.returncode == 0
