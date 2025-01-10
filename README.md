@@ -19,10 +19,10 @@ git checkout -b [A_SUITABLE_NAME_PROJECT]
 2. In [app.py](app.py) change the SSID name
 
 ```bash
-# ------------------------------------------- #
-# ************* Global Variables ************ #
-# ------------------------------------------- #
-
-AP_SELF_IP = "10.10.1.1"
 AP_SSID="[A_PREFERRED_SSID_NAME]"
+```
+
+3. Create a new hotspot/access_point scope using `nmcli`. So that the script [network_manager.py](wifi_config/network_manager.py) can control it and create an AP when needed for you to provide as SSID and WPA2/PSK for the pi to connect to.
+
+```bash
 ```
