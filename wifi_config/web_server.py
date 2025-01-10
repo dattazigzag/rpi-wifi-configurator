@@ -42,7 +42,7 @@ def test_disconnect():
 
 @app.route('/')
 def index():
-    # Note: TBT: In the new method suggested by ai these global vars are remobved, why?
+    # Note: TBT: In the new method suggested by ai these global vars are removed, why?
     global is_ap_mode, last_connection_success
     if is_ap_mode and not last_connection_success:
         return render_template('index.html')

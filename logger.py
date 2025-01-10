@@ -35,7 +35,7 @@ class CustomTimedRotatingFileHandler(TimedRotatingFileHandler):
 
 
 class Logger:
-    def __init__(self, name, log_file='komorebi.log', level=logging.DEBUG):
+    def __init__(self, name, log_file='serial_mon_rpi_wifi_config.log', level=logging.DEBUG):
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)
         
@@ -72,7 +72,7 @@ class Logger:
         self.logger.critical(message)
 
 # Create a global logger instance
-logger = Logger('komorebi')
+logger = Logger('serial_mon_rpi_wifi_config')
 
 # Capture Flask and Werkzeug logs
 werkzeug_logger = logging.getLogger('werkzeug')
