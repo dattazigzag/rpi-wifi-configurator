@@ -11,7 +11,7 @@ from logger import logger
 # ------------------------------------------- #
 
 AP_SELF_IP = "10.10.1.1"
-AP_SSID="KOMOREBI-PI-STICK"
+AP_SSID="SERIAL_MONITOR_PI4"
 WIFI_RESET_PIN = 23
 
 # * Note: From webserver and DNSServer 
@@ -89,11 +89,11 @@ def main():
 
 
 logger.info("-----------------------")
-logger.info("KOMOREBI SYS VIEW | LOG")
+logger.info("SERIAL MON SYS VIEW | LOG")
 logger.info("-----------------------")
 logger.info("Artist: Saurabh Datta")
 logger.info("Loc: Berlin, Germany")
-logger.info("Date: Sept|2024")
+logger.info("Date: Jan, 2025")
 logger.info("-----------------------")
 
 
