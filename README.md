@@ -54,6 +54,8 @@ sudo nmcli con add \
     ipv4.addresses 10.10.1.1/24 \
     wifi-sec.key-mgmt wpa-psk \
     wifi-sec.psk "[YOUR_WPA2/PSK_PWD]"
+
+# default wifi-sec.psk is 'raspberry'
 ```
 
 > The value of `wifi-sec.psk` __must be same__ as the value of `AP_SSID` modified in [app.py](app.py)
