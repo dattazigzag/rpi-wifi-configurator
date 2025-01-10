@@ -110,6 +110,9 @@ Alright, now that it's working, let's organize ...
 8. Commit & Push Changes
 
 ```bash
+git add .
 git commit -m "made my custom changes"
-
+git push -u origin [YOUR_BRANCH_NAME_FROM_BEFORE]
+# Wait to be merged
 ```
+
