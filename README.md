@@ -100,13 +100,13 @@ source activate venv/bin/activate
 
 > You must leep the new venv's name as `venv` 
 
-6. Install dependencies
+7. Install dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-7. Test Script
+8. Test Script
 
 > Better run it when a monitor and keyboard is attached to the pi, as if you are SSHed into the rpi, then when it creates an AP, you will lose connection to your tunnel, until you connect to it's AP again as it disconnectes from any associated station.
 
@@ -118,7 +118,7 @@ Now you can _Long Press_ (> 4 sec) and you will see the prompts ...
 
 Alright, now that it's working, let's organize ...
 
-8. Commit & Push Changes
+9. Commit & Push Changes
 
 ```bash
 git add .
