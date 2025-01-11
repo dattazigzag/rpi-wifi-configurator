@@ -10,7 +10,7 @@ from time import sleep
 
 server_running = False
 server_thread = None
-PORT = 80
+PORT = 8080
 is_ap_mode = False
 last_connection_success = False
 
@@ -42,7 +42,7 @@ def test_disconnect():
 
 @app.route('/')
 def index():
-    # Note: TBT: In the new method suggested by ai these global vars are remobved, why?
+    # Note: TBT: In the new method suggested by ai these global vars are removed, why?
     global is_ap_mode, last_connection_success
     if is_ap_mode and not last_connection_success:
         return render_template('index.html')

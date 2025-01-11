@@ -80,6 +80,12 @@ sudo nmcli con add \
     <h1>[YOUR_PROJECT_NAME]</h1>
     ```
 
+5. Edit the [logger.py](logger.py)
+
+```bash
+```
+
+
 5. Create a virtual environment
 
 ```bash
