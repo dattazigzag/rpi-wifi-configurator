@@ -3,6 +3,8 @@ from flask_socketio import SocketIO
 from wifi_config.network_manager import NetworkManager
 from logger import logger
 from time import sleep
+from led import LED
+status_led: LED = None  # Type hint
 
 # ------------------------------------------- #
 # ************* Global Variables ************ #
@@ -68,6 +70,11 @@ def handle_connect_wifi(data):
     global is_ap_mode, last_connection_success
     ssid = data['ssid']
     password = data['password']
+    
+    # Set LED to breathing while attempting connection
+    status_led.set_state(LED.SLOW_BREATH)
+    
+    logger.debug(f"[web_server.py][Status] Attempting to connect to SSID: {ssid}")
 
     success, message = NetworkManager.connect_to_wifi(ssid, password)
     
@@ -80,11 +87,15 @@ def handle_connect_wifi(data):
         socketio.emit('connection_result', {'success': True, 'ip': ip})
         is_ap_mode = False
         last_connection_success = True
-        switch_to_normal_mode()  # Add this line
+        switch_to_normal_mode()
+        status_led.set_state(LED.SOLID)
+        sleep(2)
+        status_led.set_state(LED.OFF)
     else:
         logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
         last_connection_success = False
+        status_led.set_state(LED.FAST_BLINK)
 
 def run_server():
     global server_running

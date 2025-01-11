@@ -2,49 +2,70 @@ import board
 import digitalio
 import threading
 import time
+import math
 
 class LED:
-    SOLID = "SOLID"           # Normal operation, connected to WiFi
-    FAST_BLINK = "FAST"       # AP Mode
-    SLOW_BREATH = "BREATH"    # Attempting to connect
-    OFF = "OFF"               # LED off
+    SOLID = "SOLID"
+    FAST_BLINK = "FAST"
+    SLOW_BREATH = "BREATH"
+    OFF = "OFF"
 
-    def __init__(self, pin):
+    def __init__(self, pin, max_brightness=0.3):  # 30% brightness by default
         self.pin = getattr(board, f'D{pin}')
         self.led = digitalio.DigitalInOut(self.pin)
         self.led.direction = digitalio.Direction.OUTPUT
         self._state = self.OFF
         self._running = True
+        self.max_brightness = max_brightness
         
         self.thread = threading.Thread(target=self._control_led, daemon=True)
         self.thread.start()
 
+    def _pwm_cycle(self, brightness):
+        """Execute one PWM cycle with given brightness (0-1)"""
+        scaled_brightness = brightness * self.max_brightness
+        on_time = scaled_brightness * 0.01  # Max 10ms
+        off_time = 0.01 - on_time
+        
+        self.led.value = True
+        time.sleep(on_time)
+        self.led.value = False
+        time.sleep(off_time)
+
     def _fast_blink(self):
-        self.led.value = not self.led.value
-        return 0.2  # 200ms interval
+        """Single blink cycle with controlled brightness"""
+        if self.led.value:  # If LED is on, turn it off
+            self.led.value = False
+            return 0.5  # Off for 200ms
+        else:  # If LED is off, turn it on with PWM
+            self._pwm_cycle(1.0)  # One PWM cycle at max allowed brightness
+            return 0.5  # On for 200ms
 
     def _slow_breath(self):
-        for i in range(0, 100, 2):
+        """Creates a smooth breathing effect using sine wave"""
+        steps = 100
+        for i in range(steps):
             if self._state != self.SLOW_BREATH:
                 break
-            # PWM simulation
-            self.led.value = True
-            time.sleep(i/10000.0)
-            self.led.value = False
-            time.sleep((100-i)/10000.0)
-        return 0.01  # Return to control loop quickly
+                
+            # Generate sine wave from -π/2 to π/2
+            x = math.pi * (i / steps) - math.pi/2
+            brightness = (math.sin(x) + 1) / 2  # Convert to 0-1 range
+            
+            self._pwm_cycle(brightness)
+        
+        return 0.01
 
     def _solid(self):
-        self.led.value = True
-        return 0.1  # Check for state change every 100ms
+        self._pwm_cycle(1.0)  # Full brightness but limited by max_brightness
+        return 0.01
 
     def _off(self):
         self.led.value = False
-        return 0.1  # Check for state change every 100ms
+        return 0.1
 
     def _control_led(self):
         while self._running:
-            # State machine for LED patterns
             if self._state == self.FAST_BLINK:
                 sleep_time = self._fast_blink()
             elif self._state == self.SLOW_BREATH:
@@ -57,11 +78,9 @@ class LED:
             time.sleep(sleep_time)
 
     def set_state(self, state):
-        """Change LED state to one of: SOLID, FAST_BLINK, SLOW_BREATH, OFF"""
         self._state = state
 
     def cleanup(self):
-        """Clean up GPIO on exit"""
         self._running = False
         if self.thread.is_alive():
             self.thread.join()
