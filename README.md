@@ -1,12 +1,12 @@
 # README
 
-I never found a simple utility that headlessly allows setting up wifi to a pi, without logging into it with a monitor and keyboard or preconfigured. But what if you are using it in an installation or a setup where you can't be there and someone who is there doesn;t know anything about SSH or is not into Linux? 
+I never found a simple utility that headlessly allows setting up wifi to a pi, without logging into it with a monitor and keyboard or preconfiguring it prior to setup with the wifi creds. What if you can't use ethernet? Andf, what if you are using it in an installation or a setup where you can't be there and someone who is there doesn't know anything about SSH or is not into Linux? 
 
 Well I have a solution.. (Behold)
 
-Here with thsi utility, with the long press of a button, the rpi disconnects from any previously connected WiFi Access Points (or if the WiFi is not configured, then it doesn't matter) and creates a new Access Point. 
+Here with this utility, with the long press of a button, the rpi disconnects from any previously connected WiFi Access Points and creates a new Access Point. If the WiFi is not configured, then it doesn't matter. 
 
-You can then connect to that Access Point (Check out how to customize that below), navigate to [http://10.10.1.1](http://10.10.1.1) and provide a SSID and PWD for a visible 2.5GHz network that you what your rpi to connect to. 
+You can then connect to that Access Point (Check out how to customize that below), navigate to [http://10.10.1.1:8080](http://10.10.1.1:8080) and provide a SSID and PWD for a visible 2.5GHz network that you what your rpi to connect to. 
 
 It will then disable the self initited AP and connect to the provided SSID. If all goes well and the credentials were, correct, it will connect successfully. 
 
