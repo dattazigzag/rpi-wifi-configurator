@@ -37,7 +37,7 @@ def on_long_press():
     reset_wifi_state()  # Reset the WiFi state
     switch_to_ap_mode()
 
-    logger.info(f"[app.py][Result] AP mode activated. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}")
+    logger.info(f"[app.py][Result] AP mode activated. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}:8080")
 
 
 # ------------------------------------------ #
@@ -100,7 +100,7 @@ logger.info("-----------------------")
 # If wifi connected print IP address. if not type a message below
 logger.info(f"[app.py][Status] Current IP: {NetworkManager.get_current_ip()}")
 if NetworkManager.get_current_ip() == AP_SELF_IP:
-    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://komorebi.local or http://komorebi.lan to provide 2.5GHz Wifi credentials")
+    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://serialmonitor.local:8080 or http://serialmonitor.lan:8080 to provide 2.5GHz Wifi credentials")
 else:
     logger.info("[app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec")
     
