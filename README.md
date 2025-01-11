@@ -8,9 +8,7 @@ Here with this utility, with the long press of a button, the rpi disconnects fro
 
 You can then connect to that Access Point (Check out how to customize that below), navigate to [http://10.10.1.1:8080](http://10.10.1.1:8080) and provide a SSID and PWD for a visible 2.5GHz network that you what your rpi to connect to. 
 
-It will then disable the self initited AP and connect to the provided SSID. If all goes well and the credentials were, correct, it will connect successfully. 
-
-> [TBD] Blink meaning for status 
+It will then disable the self initited AP and connect to the provided SSID. If all goes well and the credentials were, correct, it will connect successfully.
 
 ---
 
@@ -23,11 +21,11 @@ git clone https://github.com/dattasaurabh82/rpi-wifi-configurator.git
 ```
 
 1. Connect Button to  `GPIO 23 `
-2. Connect LED to  `GPIO x `
+2. Connect LED to  `GPIO 24`
 
 > If you want to use a different pin for the button to reconfigure Wifi (for whatever reason) make sure to after changing them, makes the changes in the script. You can do so by editing [app.py](app.py). Find the line `WIFI_RESET_PIN = 23` and change it there. 
 
-> [TBD] Wiring Diagram
+![Wiring Diagram](assets/wiring.png)
 
 ## How to customize WIFI Settings
 
@@ -141,6 +139,38 @@ systemctl --user status rpi-btn-wifi-manager.service
 
 > This sets it up as a user service by modifying the [rpi-btn-wifi-manager.service](rpi-btn-wifi-manager.service) and copying it over to `.config/systemd/user/` and enables it. 
 You still have ot start it. 
+
+---
+
+## How to Use
+
+1. Very simple, if everything is wired up correctly and configured correctly, you can just long press the button for more than 4 sec and then the LED should `BLINK`.
+2. Soon you shoud see the raspberry pi's AP mode's hotspot (Step 3).
+3. Join that with whatever PWD you set in Step 3.
+4. Then go to a browser and type in [http://10.10.1.1:8080](http://10.10.1.1:8080).
+5. Enter the 2.5 GHz SSID name and PWD of the WiFi you want the pi to connect to.
+6. If all goes well, you wil see the LED `BREATHING`; meaning it's attempting to connect to the wifi you just provided.
+7. If it succeeds, the LED will go `SOLID` and then turn `OFF`, meaning it has sucessfully connected. 
+8. If not, it will still blink, meaning, it's still in AP mode.
+9. This means that the rpi is disconnecting from any previous WIFI and setting up an access point. 
+
+
+| LED STATE | STATUS |
+|----------|----------|
+| FAST_BLINK = "FAST" | In AP Mode |
+| BREATHING | Connecting to user provided SSID |
+| SOLID & the OFF| Successfuly connected to user provided SSID |
+
+---
+
+## Attribution
+
+```text
+Saurabh Datta
+zigzag.is [Principal Designer]
+Berlin
+January 2025
+```
 
 Enjoy :)
 
