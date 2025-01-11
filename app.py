@@ -100,7 +100,7 @@ logger.info("-----------------------")
 # If wifi connected print IP address. if not type a message below
 logger.info(f"[app.py][Status] Current IP: {NetworkManager.get_current_ip()}")
 if NetworkManager.get_current_ip() == AP_SELF_IP:
-    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://serialmonitor.local:8080 or http://serialmonitor.lan:8080 to provide 2.5GHz Wifi credentials")
+    logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://serialport.local:8080 or http://serialport.lan:8080 to provide 2.5GHz Wifi credentials")
 else:
     logger.info("[app.py][Status] To configure wifi, Long Press the Wifi Reset Button for more than 5 sec")
     
@@ -113,4 +113,3 @@ if __name__ == "__main__":
         if server_running:
             stop_server()
         logger.info("[app.py][Result] Program stopped")
-
