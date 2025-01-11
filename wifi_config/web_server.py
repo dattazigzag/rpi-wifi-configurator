@@ -10,7 +10,7 @@ from time import sleep
 
 server_running = False
 server_thread = None
-PORT = 80
+PORT = 8080
 is_ap_mode = False
 last_connection_success = False
 
