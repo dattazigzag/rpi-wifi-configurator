@@ -1,4 +1,5 @@
 from button import Button
+from led import LED
 from wifi_config.network_manager import NetworkManager
 from wifi_config.web_server import run_server, stop_server, server_running, switch_to_ap_mode, switch_to_normal_mode, reset_wifi_state
 import threading
@@ -13,6 +14,7 @@ from logger import logger
 AP_SELF_IP = "10.10.1.1"
 AP_SSID="SERIAL_MONITOR_PI4"
 WIFI_RESET_PIN = 23
+LED_PIN = 24
 
 # * Note: From webserver and DNSServer 
 server_thread = None
@@ -52,6 +54,11 @@ button = Button(pin=WIFI_RESET_PIN, debounce_time=0.02, long_press_time=4)
 
 button.on_short_press = on_short_press
 button.on_long_press = on_long_press
+
+# ------------------------------------------ #
+# -------- Process status signal LED ------- #
+# ------------------------------------------ #
+status_led = LED(pin=LED_PIN)
 
 
 # ------------------------------------------ # 
