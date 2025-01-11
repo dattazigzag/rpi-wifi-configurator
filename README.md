@@ -145,8 +145,8 @@ You still have ot start it.
 ## How to Use
 
 1. Very simple, if everything is wired up correctly and configured correctly, you can just long press the button for more than 4 sec and then the LED should `BLINK`.
-2. Soon you shoud see the raspberry pi's AP mode's hotspot (Step 3).
-3. Join that with whatever PWD you set in Step 3.
+2. Soon you shoud see the raspberry pi's AP mode's hotspot ([Step 3](https://github.com/dattasaurabh82/rpi-wifi-configurator/tree/main?tab=readme-ov-file#how-to-customize-wifi-settings)).
+3. Join that with whatever PWD you set in [Step 3](https://github.com/dattasaurabh82/rpi-wifi-configurator/tree/main?tab=readme-ov-file#how-to-customize-wifi-settings).
 4. Then go to a browser and type in [http://10.10.1.1:8080](http://10.10.1.1:8080).
 5. Enter the 2.5 GHz SSID name and PWD of the WiFi you want the pi to connect to.
 6. If all goes well, you wil see the LED `BREATHING`; meaning it's attempting to connect to the wifi you just provided.
