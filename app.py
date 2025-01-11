@@ -1,5 +1,6 @@
 from button import Button
 from led import LED
+from led import LED
 from wifi_config.network_manager import NetworkManager
 from wifi_config.web_server import run_server, stop_server, server_running, switch_to_ap_mode, switch_to_normal_mode, reset_wifi_state
 import threading
@@ -14,6 +15,7 @@ from logger import logger
 AP_SELF_IP = "10.10.1.1"
 AP_SSID="SERIAL_MONITOR_PI4"
 WIFI_RESET_PIN = 23
+LED_PIN = 24
 LED_PIN = 24
 
 # * Note: From webserver and DNSServer 
@@ -31,7 +33,7 @@ def on_short_press():
 
 def on_long_press():
     global server_thread, server_running
-    logger.info("")  # For a new line
+    logger.info("")
     logger.info("[app.py][Event] Long Press detected!")
 
     logger.info("[app.py][Action] Setting up Access Point ...")
@@ -39,8 +41,12 @@ def on_long_press():
     # Set LED to fast blink for AP mode
     status_led.set_state(LED.FAST_BLINK)
     
+    
+    # Set LED to fast blink for AP mode
+    status_led.set_state(LED.FAST_BLINK)
+    
     NetworkManager.setup_ap()
-    reset_wifi_state()  # Reset the WiFi state
+    reset_wifi_state() 
     switch_to_ap_mode()
 
     logger.info(f"[app.py][Result] AP mode activated. Connect to the Wi-Fi and navigate to http://{AP_SELF_IP}:8080")
@@ -62,7 +68,6 @@ button.on_long_press = on_long_press
 # ------------------------------------------ #
 # -------- Process status signal LED ------- #
 # ------------------------------------------ #
-status_led = LED(pin=LED_PIN)
 # status_led = LED(pin=LED_PIN)
 status_led = LED(pin=LED_PIN, max_brightness=0.3)  # 30% brightness
 from wifi_config.web_server import init_app

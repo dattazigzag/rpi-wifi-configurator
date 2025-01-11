@@ -5,6 +5,8 @@ from logger import logger
 from time import sleep
 from led import LED
 status_led: LED = None  # Type hint
+from led import LED
+status_led: LED = None  # Type hint
 
 # ------------------------------------------- #
 # ************* Global Variables ************ #
@@ -12,6 +14,7 @@ status_led: LED = None  # Type hint
 
 server_running = False
 server_thread = None
+PORT = 8080
 PORT = 8080
 is_ap_mode = False
 last_connection_success = False
@@ -23,6 +26,11 @@ last_connection_success = False
 
 app = Flask(__name__)
 socketio = SocketIO(app)
+
+def init_app(led_instance):
+    global status_led
+    status_led = led_instance
+    return app
 
 
 # ------------------------------------------- #
@@ -44,7 +52,7 @@ def test_disconnect():
 
 @app.route('/')
 def index():
-    # Note: TBT: In the new method suggested by ai these global vars are remobved, why?
+    # Note: TBT: In the new method suggested by ai these global vars are removed, why?
     global is_ap_mode, last_connection_success
     if is_ap_mode and not last_connection_success:
         return render_template('index.html')
@@ -75,6 +83,11 @@ def handle_connect_wifi(data):
     status_led.set_state(LED.SLOW_BREATH)
     
     logger.debug(f"[web_server.py][Status] Attempting to connect to SSID: {ssid}")
+    
+    # Set LED to breathing while attempting connection
+    status_led.set_state(LED.SLOW_BREATH)
+    
+    logger.debug(f"[web_server.py][Status] Attempting to connect to SSID: {ssid}")
 
     success, message = NetworkManager.connect_to_wifi(ssid, password)
     
@@ -91,11 +104,16 @@ def handle_connect_wifi(data):
         status_led.set_state(LED.SOLID)
         sleep(2)
         status_led.set_state(LED.OFF)
+        switch_to_normal_mode()
+        status_led.set_state(LED.SOLID)
+        sleep(2)
+        status_led.set_state(LED.OFF)
     else:
         logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
         last_connection_success = False
         status_led.set_state(LED.FAST_BLINK)
+
 
 def run_server():
     global server_running
