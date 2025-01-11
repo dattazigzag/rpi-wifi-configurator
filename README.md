@@ -1,8 +1,12 @@
 # README
 
-With the long press of a button, the rpi disconnects from any previously connected WiFi Access Points (or if the WiFi is not configured, then it doesn't matter) and creates a new Access Point. 
+I never found a simple utility that headlessly allows setting up wifi to a pi, without logging into it with a monitor and keyboard or preconfiguring it prior to setup with the wifi creds. What if you can't use ethernet? Andf, what if you are using it in an installation or a setup where you can't be there and someone who is there doesn't know anything about SSH or is not into Linux? 
 
-You can then connect to that Access Point (Check out how to customize that below), navigate to [http://10.10.1.1](http://10.10.1.1) and provide a SSID and PWD for a visible 2.5GHz network that you what your rpi to connect to. 
+Well I have a solution.. (Behold)
+
+Here with this utility, with the long press of a button, the rpi disconnects from any previously connected WiFi Access Points and creates a new Access Point. If the WiFi is not configured, then it doesn't matter. 
+
+You can then connect to that Access Point (Check out how to customize that below), navigate to [http://10.10.1.1:8080](http://10.10.1.1:8080) and provide a SSID and PWD for a visible 2.5GHz network that you what your rpi to connect to. 
 
 It will then disable the self initited AP and connect to the provided SSID. If all goes well and the credentials were, correct, it will connect successfully. 
 
@@ -36,7 +40,7 @@ git checkout -b [A_SUITABLE_NAME_PROJECT]
 
 2. In [app.py](app.py) change the SSID name
 
-```python
+```bash
 AP_SSID="[A_PREFERRED_SSID_NAME]"
 ```
 
@@ -80,7 +84,7 @@ sudo nmcli con add \
     <h1>[YOUR_PROJECT_NAME]</h1>
     ```
 
-5. update network discovery interface names (edit file: ) 
+5. Update network discovery interface names (edit file: ) 
 
 Find the line
 
@@ -89,6 +93,7 @@ logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to
 ```
 
 And, update `http://serialmonitor...` to either your ip or if network interface name is set, update to that. 
+
 
 6. Create a virtual environment
 
@@ -125,4 +130,17 @@ git commit -m "made my custom changes"
 git push -u origin [YOUR_BRANCH_NAME_FROM_BEFORE]
 # Wait to be merged
 ```
+
+10. Automate to start this as a service in the background (also to start after reboots)
+
+```bash
+./setup_service.sh
+systemctl --user start rpi-btn-wifi-manager.service
+systemctl --user status rpi-btn-wifi-manager.service
+```
+
+> This sets it up as a user service by modifying the [rpi-btn-wifi-manager.service](rpi-btn-wifi-manager.service) and copying it over to `.config/systemd/user/` and enables it. 
+You still have ot start it. 
+
+Enjoy :)
 
