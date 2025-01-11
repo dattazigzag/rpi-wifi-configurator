@@ -62,7 +62,8 @@ button.on_long_press = on_long_press
 # ------------------------------------------ #
 # -------- Process status signal LED ------- #
 # ------------------------------------------ #
-status_led = LED(pin=LED_PIN)
+# status_led = LED(pin=LED_PIN)
+status_led = LED(pin=LED_PIN, max_brightness=0.3)  # 30% brightness
 from wifi_config.web_server import init_app
 init_app(status_led)
 
