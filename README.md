@@ -36,7 +36,7 @@ git checkout -b [A_SUITABLE_NAME_PROJECT]
 
 2. In [app.py](app.py) change the SSID name
 
-```bash
+```python
 AP_SSID="[A_PREFERRED_SSID_NAME]"
 ```
 
@@ -80,7 +80,17 @@ sudo nmcli con add \
     <h1>[YOUR_PROJECT_NAME]</h1>
     ```
 
-5. Create a virtual environment
+5. update network discovery interface names (edit file: ) 
+
+Find the line
+
+```python
+logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://serialmonitor.local:8080 or http://serialmonitor.lan :8080 to provide 2.5GHz Wifi credentials")
+```
+
+And, update `http://serialmonitor...` to either your ip or if network interface name is set, update to that. 
+
+6. Create a virtual environment
 
 ```bash
 python -m venv venv
@@ -89,13 +99,13 @@ source activate venv/bin/activate
 
 > You must leep the new venv's name as `venv` 
 
-6. Install dependencies
+7. Install dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-7. Test Script
+8. Test Script
 
 > Better run it when a monitor and keyboard is attached to the pi, as if you are SSHed into the rpi, then when it creates an AP, you will lose connection to your tunnel, until you connect to it's AP again as it disconnectes from any associated station.
 
@@ -107,7 +117,7 @@ Now you can _Long Press_ (> 4 sec) and you will see the prompts ...
 
 Alright, now that it's working, let's organize ...
 
-8. Commit & Push Changes
+9. Commit & Push Changes
 
 ```bash
 git add .
