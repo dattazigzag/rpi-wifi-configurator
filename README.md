@@ -1,6 +1,10 @@
 # README
 
-With the long press of a button, the rpi disconnects from any previously connected WiFi Access Points (or if the WiFi is not configured, then it doesn't matter) and creates a new Access Point. 
+I never found a simple utility that headlessly allows setting up wifi to a pi, without logging into it with a monitor and keyboard or preconfigured. But what if you are using it in an installation or a setup where you can't be there and someone who is there doesn;t know anything about SSH or is not into Linux? 
+
+Well I have a solution.. (Behold)
+
+Here with thsi utility, with the long press of a button, the rpi disconnects from any previously connected WiFi Access Points (or if the WiFi is not configured, then it doesn't matter) and creates a new Access Point. 
 
 You can then connect to that Access Point (Check out how to customize that below), navigate to [http://10.10.1.1](http://10.10.1.1) and provide a SSID and PWD for a visible 2.5GHz network that you what your rpi to connect to. 
 
@@ -126,4 +130,17 @@ git commit -m "made my custom changes"
 git push -u origin [YOUR_BRANCH_NAME_FROM_BEFORE]
 # Wait to be merged
 ```
+
+10. Automate to start this as a service in the background (also to start after reboots)
+
+```bash
+./setup_service.sh
+systemctl --user start rpi-btn-wifi-manager.service
+systemctl --user status rpi-btn-wifi-manager.service
+```
+
+> This sets it up as a user service by modifying the [rpi-btn-wifi-manager.service](rpi-btn-wifi-manager.service) and copying it over to `.config/systemd/user/` and enables it. 
+You still have ot start it. 
+
+Enjoy :)
 
