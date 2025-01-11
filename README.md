@@ -80,13 +80,18 @@ sudo nmcli con add \
     <h1>[YOUR_PROJECT_NAME]</h1>
     ```
 
-5. Edit the [logger.py](logger.py)
+5. Update network discovery interface names (edit file: ) 
 
-```bash
+Find the line
+
+```python
+logger.info(f"[app.py][Status] Connect to wifi access point: {AP_SSID} and go to: http://serialmonitor.local:8080 or http://serialmonitor.lan :8080 to provide 2.5GHz Wifi credentials")
 ```
 
+And, update `http://serialmonitor...` to either your ip or if network interface name is set, update to that. 
 
-5. Create a virtual environment
+
+6. Create a virtual environment
 
 ```bash
 python -m venv venv
