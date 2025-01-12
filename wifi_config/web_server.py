@@ -5,8 +5,6 @@ from logger import logger
 from time import sleep
 from led import LED
 status_led: LED = None  # Type hint
-from led import LED
-status_led: LED = None  # Type hint
 
 # ------------------------------------------- #
 # ************* Global Variables ************ #
@@ -14,7 +12,6 @@ status_led: LED = None  # Type hint
 
 server_running = False
 server_thread = None
-PORT = 8080
 PORT = 8080
 is_ap_mode = False
 last_connection_success = False
@@ -83,11 +80,6 @@ def handle_connect_wifi(data):
     status_led.set_state(LED.SLOW_BREATH)
     
     logger.debug(f"[web_server.py][Status] Attempting to connect to SSID: {ssid}")
-    
-    # Set LED to breathing while attempting connection
-    status_led.set_state(LED.SLOW_BREATH)
-    
-    logger.debug(f"[web_server.py][Status] Attempting to connect to SSID: {ssid}")
 
     success, message = NetworkManager.connect_to_wifi(ssid, password)
     
@@ -105,9 +97,6 @@ def handle_connect_wifi(data):
         sleep(2)
         status_led.set_state(LED.OFF)
         switch_to_normal_mode()
-        status_led.set_state(LED.SOLID)
-        sleep(2)
-        status_led.set_state(LED.OFF)
     else:
         logger.error(f'[web_server.py][Result] Connection failed: {message}')
         socketio.emit('connection_result', {'success': False, 'error': message})
@@ -146,3 +135,4 @@ def switch_to_normal_mode():
     is_ap_mode = False
     last_connection_success = True
     logger.info("[web_server.py][Status] Switched to normal mode")
+
